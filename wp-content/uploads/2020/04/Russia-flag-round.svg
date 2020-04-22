@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20" rx="10"></rect>
+    </defs>
+    <g id="Global-Landing-Page-(Draft-3)---In-progress-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-14-Copy" transform="translate(-250.000000, -30.000000)">
+            <g id="Russia--logo" transform="translate(250.000000, 30.000000)">
+                <g id="Group-4">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#D8D8D8" xlink:href="#path-1"></use>
+                    <g id="Russia@2x" mask="url(#mask-2)" fill-rule="nonzero">
+                        <g transform="translate(-5.500000, -0.500000)" id="Shape">
+                            <path d="M0.109375,3.0625 L0.109375,7 L30.734375,7 L30.734375,3.0625 C30.734375,1.4581128 29.4337622,0.1575 27.829375,0.1575 L3.014375,0.1575 C1.4099878,0.1575 0.109375,1.4581128 0.109375,3.0625 Z" fill="#FFFFFF"></path>
+                            <polygon fill="#4A89DC" points="0.109375 13.88625 30.734375 13.88625 30.734375 7.030625 0.109375 7.030625"></polygon>
+                            <path d="M0.109375,17.8325 C0.109375,19.4368872 1.4099878,20.7375 3.014375,20.7375 L27.829375,20.7375 C29.4337622,20.7375 30.734375,19.4368872 30.734375,17.8325 L30.734375,13.895 L0.109375,13.895 L0.109375,17.8325 Z" fill="#ED5565"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

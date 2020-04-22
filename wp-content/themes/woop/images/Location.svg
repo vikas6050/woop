@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="53px" height="53px" viewBox="0 0 53 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Location</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="22.5" cy="22.5" r="22.5"></circle>
+        <filter x="-13.3%" y="-13.3%" width="126.7%" height="126.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Web-screens-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="About-pop-up" transform="translate(-331.000000, -245.000000)">
+            <g id="Group-18" transform="translate(335.000000, 249.000000)">
+                <g id="Location">
+                    <g id="Group-4">
+                        <g id="Oval-Copy-4">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <circle id="Oval-Copy-5" fill="#C42279" cx="22.5" cy="22.5" r="19.5967742"></circle>
+                    </g>
+                    <path d="M22.5,11.25 C27.131109,11.25 30.9375,15.0106232 30.9375,19.7273371 C30.8106203,24.3803116 25.6719925,30.6905099 22.5,33.75 C19.3280075,30.9454674 14.1893797,24.1890935 14.0625,19.7273371 C14.0625,15.0106232 17.8054511,11.25 22.5,11.25 Z M22.5,16.2854108 C24.3397556,16.2854108 25.862312,17.8151558 25.862312,19.7273371 C25.862312,21.575779 24.3397556,23.1055241 22.5,23.1055241 C20.5968045,23.1055241 19.0742481,21.575779 19.0742481,19.7273371 C19.0742481,17.8151558 20.5968045,16.2854108 22.5,16.2854108 Z" id="Shape" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

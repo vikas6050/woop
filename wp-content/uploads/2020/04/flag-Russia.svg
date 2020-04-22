@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-79.5%" y="-70.0%" width="258.1%" height="240.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feMorphology radius="2.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0325611888 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="40" height="40" rx="20"></rect>
+    </defs>
+    <g id="Global-Landing-Page-(Draft-3)---In-progress-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="D|-Global-Landing-Page---V2" transform="translate(-938.000000, -9387.000000)">
+            <g id="Group-27" transform="translate(0.000000, 9100.000000)">
+                <g id="Group-20-Copy-2" transform="translate(921.000000, 276.000000)">
+                    <g id="India@2x-Copy-3" filter="url(#filter-1)" transform="translate(24.000000, 18.000000)">
+                        <g id="Group-4">
+                            <mask id="mask-3" fill="white">
+                                <use xlink:href="#path-2"></use>
+                            </mask>
+                            <use id="Mask" fill="#D8D8D8" xlink:href="#path-2"></use>
+                            <g id="Russia@2x" mask="url(#mask-3)" fill-rule="nonzero">
+                                <g transform="translate(-11.000000, -1.000000)" id="Shape">
+                                    <path d="M0.21875,6.125 L0.21875,14 L61.46875,14 L61.46875,6.125 C61.46875,2.9162256 58.8675244,0.315 55.65875,0.315 L6.02875,0.315 C2.8199756,0.315 0.21875,2.9162256 0.21875,6.125 Z" fill="#FFFFFF"></path>
+                                    <polygon fill="#4A89DC" points="0.21875 27.7725 61.46875 27.7725 61.46875 14.06125 0.21875 14.06125"></polygon>
+                                    <path d="M0.21875,35.665 C0.21875,38.8737744 2.8199756,41.475 6.02875,41.475 L55.65875,41.475 C58.8675244,41.475 61.46875,38.8737744 61.46875,35.665 L61.46875,27.79 L0.21875,27.79 L0.21875,35.665 Z" fill="#ED5565"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
