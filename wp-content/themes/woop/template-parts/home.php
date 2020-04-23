@@ -816,6 +816,7 @@ if( $global_site_results ){
 <!--global sites section ends here-->
 	 
 <!--partner with us section starts here-->
+	 <div id="partner-with_us">&nbsp;</div>
  <section class="partner-with_us" >
 	<div class="container">
 		<div class="row">

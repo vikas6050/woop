@@ -129,7 +129,7 @@
 						<div class="col-md-4">
                 			<ul>
                   				<li><span>Company</span></li>
-              					<li><a href="#contact_us">Contact Us</a></li>
+              					<li><a href="#partner-with_us">Contact Us</a></li>
                   				<li><a href="<?php echo get_site_url();?>/press">Press</a></li>
                 			</ul>
               			</div>
