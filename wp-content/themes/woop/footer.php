@@ -151,8 +151,8 @@
 					<div class="row ft_btm-txt">
 						<div class="col-md-6">
 							<ul>
-								<li><a href="<?php echo get_permalink(3);?>">Privacy Policy</a></li>
-								<li><a href="<?php echo get_permalink(76);?>">Terms & Conditions</a></li>	
+								<!-- <li><a href="<?php /*echo get_permalink(3);*/?>">Privacy Policy</a></li>
+								<li><a href="<?php /*echo get_permalink(76);*/?>">Terms & Conditions</a></li> -->
 							</ul>
 						</div>
 			    		<div class="col-12 col-md-6">
