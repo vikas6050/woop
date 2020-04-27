@@ -467,7 +467,7 @@ if( $philosophy_results ){
 			   												<img src="<?php echo get_site_url();?>/wp-content/uploads/2020/04/star.svg" alt="">
               											<?php }?>
         												<div class="rvw_fb">
-           													<a href="<?php echo $fburl;?>" target="_blank"> <img src="<?php echo $iconimg;?>" alt=""></a>
+           													<img src="<?php echo $iconimg;?>" alt="">
         												</div>
         												<?php the_content(); ?> 
         												<label><?php echo $post_date;?> on <?php echo $medname;?></label>

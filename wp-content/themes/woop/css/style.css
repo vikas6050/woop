@@ -1805,7 +1805,6 @@ section.woop_en_roi ul li {
   float: left;
   margin-right: 33px;
   margin-bottom: 45px;
-  cursor: pointer;
   border: 1px solid #c42279;
 }
 .page-template-faqs section.woop_en_roi ul li {
@@ -1830,7 +1829,6 @@ section.woop_en_roi ul li span {
   border: 4px solid #fff;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
   margin-top: -30px;
-  cursor: pointer;
   /*      transition: transform .5s;
         transform: rotate(360deg);  */
 }
