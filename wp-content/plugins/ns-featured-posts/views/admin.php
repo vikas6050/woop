@@ -5,7 +5,7 @@
  * @package   NS_Featured_Posts
  * @author    Nilambar Sharma <nilambar@outlook.com>
  * @license   GPL-2.0+
- * @link      https://nilambar.net
+ * @link      https://www.nilambar.net
  * @copyright 2013 Nilambar Sharma
  */
 
@@ -31,14 +31,10 @@
 
 
 				<form action="options.php" method="post">
-				<?php settings_fields( 'nsfp-plugin-options-group' ); ?>
-				<?php do_settings_sections( 'ns-featured-posts-main' ); ?>
-
-
-				<?php submit_button( __( 'Save Changes', 'ns-featured-posts' ) ); ?>
+					<?php settings_fields( 'nsfp-plugin-options-group' ); ?>
+					<?php do_settings_sections( 'ns-featured-posts-main' ); ?>
+					<?php submit_button( __( 'Save Changes', 'ns-featured-posts' ) ); ?>
 				</form>
-
-
 
             </div> <!-- .inside -->
 
