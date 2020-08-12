@@ -125,7 +125,8 @@ if( $philosophy_results ){
 						  </div>
 
 			  			<h3><?php echo  $philosophy_result->post_title;?></h3>
-			  			<p><?php echo  wp_trim_words(  $philosophy_result->post_content, 30,'...');?></p>
+                        <?php $post_content = str_replace('[DO_GOOD_ACTIONS_COUNT]',get_post_meta( get_the_ID(),'wpcf-banner-counter3',true), $philosophy_result->post_content)?>
+			  			<p><?php echo  wp_trim_words(  $post_content, 30,'...');?></p>
 					</div>
 	          <?php }?>
 			
@@ -349,7 +350,7 @@ if( $philosophy_results ){
                 <div class="progress-responsive__bar" style="width: 8%;"></div>
                 <div class="progress-responsive__percent"></div>
               </figure>
-              <span class="ach"> <span class="number counter2">470,000</span> out of 15 million <span
+              <span class="ach"> <span class="number counter2"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter3',true);?></span> out of 15 million <span
                   class="light">achieved</span> </span>
             </div>
           </div>
@@ -1139,7 +1140,7 @@ $counter3_limit = get_post_meta( 15 ,'wpcf-banner-counter3',true);?>
             $('.counter2').text(Math.ceil(this.countNum));
           },
           complete: function () {
-            $('.counter2').text("470,000");
+            $('.counter2').text("<?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter3',true);?>");
           }
         });
 
