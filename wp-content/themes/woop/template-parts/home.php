@@ -37,7 +37,7 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
         <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title1',true);?></h6>
       </div>
       <div class="boxes scndbx">
-        <h2 class="number counter2"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter2',true);?></h2>
+        <h2 class="number counter2_top"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter2',true);?></h2>
         <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title2',true);?></h6>
       </div>
       <div class="boxes thrdbx">
@@ -78,7 +78,7 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
         <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title1',true);?></h6>
       </div>
       <div class="boxes scndbx">
-        <h2 class="number counter2"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter2',true);?></h2>
+        <h2 class="number counter2_top"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter2',true);?></h2>
         <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title2',true);?></h6>
       </div>
       <div class="boxes thrdbx">
@@ -1070,17 +1070,17 @@ $counter3_limit = get_post_meta( 15 ,'wpcf-banner-counter3',true);?>
       }
     });
     $({
-      countNum: $('.counter2').text()
+      countNum: $('.counter2_top').text()
     }).animate({
       countNum: parseFloat(counter2_without_comma)
     }, {
       duration: 2000,
       easing: 'linear',
       step: function () {
-        $('.counter2').text(Math.ceil(this.countNum));
+        $('.counter2_top').text(Math.ceil(this.countNum));
       },
       complete: function () {
-        $('.counter2').text(counter2_limit);
+        $('.counter2_top').text(counter2_limit);
       }
     });
     $({
