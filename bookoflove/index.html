@@ -1,787 +1,797 @@
-<link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-    @import url("https://fonts.googleapis.com/css?family=Poppins");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    .navbar {
-        display: none;
-    }
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins");
 
-    .layer-scoll {
-        padding-top: 0;
-        background-color: #fff;
-    }
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: "Montserrat", sans-serif;
-        font-style: normal;
-        margin: 24px;
-        background: #ffffff;
-        color: #505050;
-        margin: 0;
-    }
-
-    img {
-        max-width: 100%;
-    }
-
-    .kv-header {
-        position: relative;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .kv-header:before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(270deg, rgba(220, 31, 113, 0.74) 0%, rgba(154, 39, 135, 0.74) 100%);
-        z-index: 5;
-    }
-
-    .kv-header img {
-        width: 100%;
-        height: 100%;
-    }
-
-    .mobile-kv {
-        display: none;
-    }
-
-    .wall-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: table-header-group;
-    }
-
-    @media (max-width: 475px) {
-        .desktop-kv {
+        .navbar {
             display: none;
         }
 
+        .layer-scoll {
+            padding-top: 0;
+            background-color: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            font-style: normal;
+            margin: 24px;
+            background: #ffffff;
+            color: #505050;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .kv-header {
+            position: relative;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kv-header:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(270deg, rgba(220, 31, 113, 0.74) 0%, rgba(154, 39, 135, 0.74) 100%);
+            z-index: 5;
+        }
+
+        .kv-header img {
+            width: 100%;
+            height: 100%;
+        }
+
         .mobile-kv {
-            display: block;
+            display: none;
         }
-    }
 
-    .kv-content {
-        position: absolute;
-        left: 20%;
-        z-index: 10;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        flex-direction: column;
-        text-align: left;
-        /* margin-top: 30px; */
-    }
+        .wall-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: table-header-group;
+        }
 
-    .kv-content .woop-logo {
-        max-width: 100px;
-        margin-bottom: 20px;
-    }
+        @media (max-width: 475px) {
+            .desktop-kv {
+                display: none;
+            }
 
-    .kv-content h2 {
-        position: relative;
-        font-family: "Monserrat", sans-serif;
-        font-weight: 600;
-        font-size: 48px;
-        line-height: 40px;
-        color: #fff;
-        margin-bottom: 20px;
-    }
+            .mobile-kv {
+                display: block;
+            }
+        }
 
-    .kv-content h2 .sm-font {
-        font-size: 28px;
-        font-weight: 500;
-    }
-
-    .kv-content h2 .love {
-        position: relative;
-        display: inline-block;
-        vertical-align: bottom;
-        background-image: url("https://journylab-dev.s3-ap-southeast-1.amazonaws.com/woopwall/Love+(1).svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 119px;
-        height: 62px;
-        margin-left: 15px;
-    }
-
-    .kv-content p {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600;
-        font-size: 15px;
-        line-height: 26px;
-        color: #FFFFFF;
-        margin: 0;
-    }
-
-    .kv-content ul {
-        list-style: none;
-    }
-    .kv-content ul.woop-details {
-        padding-bottom: 30px;
-        padding-top: 10px;
-    }
-    .kv-content ul.woop-details li {        
-        font-size: 22px;
-        line-height: 28px;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 700;
-    }
-
-    .kv-content ul.woop-contact li {        
-        font-size: 14px;
-        line-height: 20px;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600;
-    }
-
-    .kv-content ul li {
-        color: #fff;
-        letter-spacing: 1.3px;
-        font-style: normal;
-    }
-
-    @media (max-width: 475px) {
         .kv-content {
-            left: 40px;
-            bottom: 80px;
+            position: absolute;
+            left: 20%;
+            z-index: 10;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            text-align: left;
+            /* margin-top: 30px; */
         }
-
-        /* .kv-content.bottom {
-            bottom: 80px;
-        } */
 
         .kv-content .woop-logo {
-            max-width: 90px;
-            /* margin-bottom: 10px; */
+            max-width: 100px;
+            margin-bottom: 20px;
         }
 
         .kv-content h2 {
-            font-size: 36px;
+            position: relative;
+            font-family: "Monserrat", sans-serif;
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 40px;
+            color: #fff;
+            margin-bottom: 20px;
         }
 
         .kv-content h2 .sm-font {
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: 500;
         }
-        
-        .kv-content h2 .love {
-            width: 110px;
-            height: 60px;
-        }
-    }
 
-    @media (max-width: 320px) {
         .kv-content h2 .love {
-            display: block;
-            margin-left: 0;
-            margin-top: 15px;
+            position: relative;
+            display: inline-block;
+            vertical-align: bottom;
+            background-image: url("https://journylab-dev.s3-ap-southeast-1.amazonaws.com/woopwall/Love+(1).svg");
+            background-repeat: no-repeat;
+            background-size: contain;
             width: 119px;
             height: 62px;
-        } 
-    }
+            margin-left: 15px;
+        }
 
-    .title-bar {
-        position: relative;
-        background: #5a0a56;
-        text-align: center;
-        margin-bottom: 15px;
-        padding: 50px 15px;
-    }
+        .kv-content p {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 26px;
+            color: #FFFFFF;
+            margin: 0;
+        }
 
-    .title-bar h2 {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 33px;
-        letter-spacing: 1.2px;
-        color: #FFFFFF;
-    }
+        .kv-content ul {
+            list-style: none;
+        }
+        .kv-content ul.woop-details {
+            padding-bottom: 30px;
+            padding-top: 10px;
+        }
+        .kv-content ul.woop-details li {        
+            font-size: 22px;
+            line-height: 28px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+        }
 
-    .title-bar h2 .icon {
-        position: relative;
-        background-image: url("https://journylab-dev.s3-ap-southeast-1.amazonaws.com/woopwall/Group.svg");
-        background-repeat: no-repeat;
-        width: 42px;
-        height: 33px;
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 20px;
-    }
+        .kv-content ul.woop-contact li {        
+            font-size: 14px;
+            line-height: 20px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+        }
 
-    .title-bar h2 .linebreak {}
+        .kv-content ul li {
+            color: #fff;
+            letter-spacing: 1.3px;
+            font-style: normal;
+        }
 
-    @media (max-width: 475px) {
+        @media (max-width: 475px) {
+            .kv-content {
+                left: 40px;
+                bottom: 80px;
+            }
+
+            /* .kv-content.bottom {
+                bottom: 80px;
+            } */
+
+            .kv-content .woop-logo {
+                max-width: 90px;
+                /* margin-bottom: 10px; */
+            }
+
+            .kv-content h2 {
+                font-size: 36px;
+            }
+
+            .kv-content h2 .sm-font {
+                font-size: 24px;
+            }
+            
+            .kv-content h2 .love {
+                width: 110px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .kv-content h2 .love {
+                display: block;
+                margin-left: 0;
+                margin-top: 15px;
+                width: 119px;
+                height: 62px;
+            } 
+        }
+
         .title-bar {
-            padding: 40px;
+            position: relative;
+            background: #5a0a56;
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 50px 15px;
         }
 
         .title-bar h2 {
-            font-size: 20px;
-            line-height: 28px; 
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 33px;
+            letter-spacing: 1.2px;
+            color: #FFFFFF;
         }
 
         .title-bar h2 .icon {
-            vertical-align: bottom;
-            top: 18px;
+            position: relative;
+            background-image: url("https://journylab-dev.s3-ap-southeast-1.amazonaws.com/woopwall/Group.svg");
+            background-repeat: no-repeat;
+            width: 42px;
+            height: 33px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 20px;
         }
 
-        .title-bar h2 .linebreak {
+        .title-bar h2 .linebreak {}
+
+        @media (max-width: 475px) {
+            .title-bar {
+                padding: 40px;
+            }
+
+            .title-bar h2 {
+                font-size: 20px;
+                line-height: 28px; 
+            }
+
+            .title-bar h2 .icon {
+                vertical-align: bottom;
+                top: 18px;
+            }
+
+            .title-bar h2 .linebreak {
+                display: block;
+                margin-left: 70px;
+            }
+        }
+
+        .wall {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wall-item {
+            position: relative;
             display: block;
-            margin-left: 70px;
+            margin: 0 0 15px 0;
+            padding: 40px 20px 30px 20px;
+            background: linear-gradient(270deg, rgb(155, 39, 135, 1) 0%,  rgb(218, 31, 114, 1) 100%);
+            transition: all 0.2s;
+            border-radius: 10px;
+            box-shadow: 0px 1px 6px #ababab;
+            overflow: hidden;
         }
-    }
 
-    .wall {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
+        .wall-item.video {
+            padding: 0;
+        }
 
-    .wall-item {
-        position: relative;
-        display: block;
-        margin: 0 0 15px 0;
-        padding: 40px 20px 30px 20px;
-        background: linear-gradient(270deg, rgb(155, 39, 135, 1) 0%,  rgb(218, 31, 114, 1) 100%);
-        transition: all 0.2s;
-        border-radius: 10px;
-        box-shadow: 0px 1px 6px #ababab;
-        overflow: hidden;
-    }
+        .wall-item.light {
+            /* background: #fff; */
+            background: #fff9f6;
+        }
 
-    .wall-item.video {
-        padding: 0;
-    }
+        .wall-item.light:before {
+            content: "";
+            position: absolute;
+            width: 130%;
+            height: 88%;
+            background-color: white;
+            border-radius: 0 0 50% 50%;
+            top: 0;
+            left: -15%;
+            z-index: 1;
+        }
 
-    .wall-item.light {
-        /* background: #fff; */
-        background: #fff9f6;
-    }
+        .wall-item.light p {
+            color: #000;
+        }
 
-    .wall-item.light:before {
-        content: "";
-        position: absolute;
-        width: 130%;
-        height: 88%;
-        background-color: white;
-        border-radius: 0 0 50% 50%;
-        top: 0;
-        left: -15%;
-        z-index: 1;
-    }
+        .wall-item .highlight {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            /* font-size: 15px; */
+            color: #fccc2a;
+        }
+        .wall-item.light .highlight {
+            color: #da1f72;
+        }
 
-    .wall-item.light p {
-        color: #000;
-    }
+        .wall-item.light figure .profile-img img {
+            border: 4px solid #fef4ee;
+        }
 
-    .wall-item .highlight {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 400;
-        /* font-size: 15px; */
-        color: #fccc2a;
-    }
-    .wall-item.light .highlight {
-        color: #da1f72;
-    }
+        .wall-item.light figure span.name {
+            color: #481540;
+        }
 
-    .wall-item.light figure .profile-img img {
-        border: 4px solid #fef4ee;
-    }
+        .wall-item.light figure span.country {
+            color: #444141;
+        }
 
-    .wall-item.light figure span.name {
-        color: #481540;
-    }
+        .wall-item.light h3 {
+            color: #000;
+        }
 
-    .wall-item.light figure span.country {
-        color: #444141;
-    }
+        .wall-item:hover {
+            transform: translateY(-6px);
+        }
 
-    .wall-item.light h3 {
-        color: #000;
-    }
+        .wall-item p {
+            position: relative;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            color: #fff;
+            font-size: 15px;
+            line-height: 28px;
+            letter-spacing: 0.8px;
+            z-index: 5;
+        }
 
-    .wall-item:hover {
-        transform: translateY(-6px);
-    }
+        .wall-item p.client {
+            font-size: 22px;
+            line-height: 32px;
+        }
 
-    .wall-item p {
-        position: relative;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 400;
-        color: #fff;
-        font-size: 15px;
-        line-height: 28px;
-        letter-spacing: 0.8px;
-        z-index: 5;
-    }
+        .wall-item figure {
+            position: relative;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            z-index: 5;
+        }
 
-    .wall-item p.client {
-        font-size: 22px;
-        line-height: 32px;
-    }
+        .wall-item figure .profile-img {
+            max-width: 80px;
+        }
 
-    .wall-item figure {
-        position: relative;
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        z-index: 5;
-    }
+        .wall-item figure .profile-img img {
+            border-radius: 50%;
+            border: 4px solid #fff;
+        }
 
-    .wall-item figure .profile-img {
-        max-width: 80px;
-    }
+        .wall-item figure span {
+            color: #fff;
+            display: block;
+            font-family: sans-serif;
+            margin-left: 15px;
+            padding-top: 6px;
+        }
 
-    .wall-item figure .profile-img img {
-        border-radius: 50%;
-        border: 4px solid #fff;
-    }
+        .wall-item figure span.name {
+            font-family: "Montserrat", sans-serif;
+            letter-spacing: 0.8px;
+            font-weight: 600;
+            font-size: 16px;
+        }
 
-    .wall-item figure span {
-        color: #fff;
-        display: block;
-        font-family: sans-serif;
-        margin-left: 15px;
-        padding-top: 6px;
-    }
+        .wall-item figure span.country {
+            font-family: "Montserrat", sans-serif;
+            letter-spacing: 0.8px;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 1.3;
+        }
 
-    .wall-item figure span.name {
-        font-family: "Montserrat", sans-serif;
-        letter-spacing: 0.8px;
-        font-weight: 600;
-        font-size: 16px;
-    }
+        .wall-item h3 {
+            font-size: 18px;
+            color: #fff;
+            font-family: sans-serif;
+            padding-bottom: 15px;
+            padding: 20px;
+            position: relative;
+            z-index: 5;
+        }
 
-    .wall-item figure span.country {
-        font-family: "Montserrat", sans-serif;
-        letter-spacing: 0.8px;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 1.3;
-    }
+        .wall-item .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            z-index: 5;
+        }
 
-    .wall-item h3 {
-        font-size: 18px;
-        color: #fff;
-        font-family: sans-serif;
-        padding-bottom: 15px;
-        padding: 20px;
-        position: relative;
-        z-index: 5;
-    }
+        .wall-item .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
 
-    .wall-item .iframe-container {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%;
-        height: 0;
-        z-index: 5;
-    }
-
-    .wall-item .iframe-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .wall-column {
-        display: block;
-        position: relative;
-        width: 20%;
-        float: left;
-        padding: 0 7.5px;
-    }
-
-    @media (max-width: 992px) {
         .wall-column {
-            width: 33.33%;
+            display: block;
+            position: relative;
+            width: 20%;
+            float: left;
+            padding: 0 7.5px;
         }
-    }
 
-    @media (max-width: 767px) {
-        .wall-column {
-            width: 50%;
+        @media (max-width: 992px) {
+            .wall-column {
+                width: 33.33%;
+            }
         }
-    }
 
-    @media (max-width: 480px) {
-        .wall-column {
-            width: auto;
-            float: none;
-            padding: 0 15px;
+        @media (max-width: 767px) {
+            .wall-column {
+                width: 50%;
+            }
         }
-    }
 
-    .noborder {
-        border: none;
-    }
-</style>
-<div class="wrapper">
-    <div class="kv-header"> <img class="desktop-kv"
-            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200901/5f4de3ce6a69e-1598940110.jpg"
-            alt="kvimage"> <img class="mobile-kv"
-            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200902/5f4eff2fae110-1599012655.jpg"
-            alt="">
-        <div class="kv-content"> <img class="woop-logo"
-                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200901/5f4e3cb5a894f-1598962869.png"
+        @media (max-width: 480px) {
+            .wall-column {
+                width: auto;
+                float: none;
+                padding: 0 15px;
+            }
+        }
+
+        .noborder {
+            border: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="kv-header"> <img class="desktop-kv"
+                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200901/5f4de3ce6a69e-1598940110.jpg"
+                alt="kvimage"> <img class="mobile-kv"
+                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200902/5f4eff2fae110-1599012655.jpg"
                 alt="">
-            <h2>Book  <span class="sm-font">of</span> <span class="love"></span></h2>
-            <p> Why 1.8 Million Moms and <br>70+ Brands Adore WOOP </p>
-        </div>
-    </div>
-    <div class="wall-wrapper">
-        <div class="title-bar">
-            <h2><span class="icon"></span> Hear what our <span class="linebreak">WOOPers say</span></h2>
-        </div>
-        <div class="wall">
-            <div class="wall-item">
-                <p> WOOP is the <span class="highlight">first-ever platform that listens to women’s opinions</span>. They provide us with missions to
-                    complete, and once the task is completed, you get rewarded. Doesn’t that sound cool? You earn
-                    rewards by simply completing easy missions, and this also creates school days for children in India
-                    and all over the world. I learned about this platform through my sister and have been recommending
-                    WOOP to everyone since. You guys are doing an ace job. Lots of love! </p>
-                <figure>
-                    <div class="profile-img"> <img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200826/5f465d461273f-1598446918.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">MOMINA AKHTAR</span> <span class="country">India</span> </div>
-                </figure>
-            </div>
-            <div class="wall-item video light">
-                <h3 class="video-title">Hear from Women on WOOP, talk about why they joined!</h3>
-                <div class="iframe-container"> <iframe width="560" height="315"
-                        src="https://www.youtube-nocookie.com/embed/fkwV31A1oD0" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe> </div>
-            </div>
-            <div class="wall-item light">
-                <p> Thank you WOOP! <span class="highlight" style="color:#da1f72 ">Thanks to the missions and programs, I added a new section, “one review - one
-                    product” to my YouTube channel</span>. Writing reviews has become an essential part of my life, and I’m
-                    pleased about it. And, of course, one of the most pleasant bonuses (apart from prizes) is creating
-                    school hours for children from low-income families. </p>
-                <figure>
-                    <div class="profile-img"> <img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200826/5f465fdf69609-1598447583.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">TATYANA BESONOVA</span> <span class="country">Russia</span> </div>
-                </figure>
-            </div>
-            <div class="wall-item video">
-                <h3 class="video-title">Indian WOOPer Shares Her Love for WOOP</h3>
-                <div class="iframe-container"> <iframe width="560" height="315"
-                        src="https://www.youtube-nocookie.com/embed/MWw4mkRFdsA" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe> </div>
-            </div>
-            <div class="wall-item light">
-                <p> Highly recommended! I’m personally glad that WOOP exists. This team is a gift! <span class="highlight" style="color: #b32f98">They unite women from
-                    around the globe virtually and conduct fun missions that benefit both parties</span>. They provide
-                    opportunities to less fortunate children and reward women who do their best to complete tasks and
-                    invite friends. I took part in some of their missions, and it was worth it! </p>
-                <figure>
-                    <div class="profile-img"> <img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200826/5f466026df594-1598447654.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">ANNA PERENA</span> <span class="country">Philippines</span> </div>
-                </figure>
-            </div>
-            <div class="wall-item video light">
-                <h3 class="video-title">Indonesian WOOPers Share Their Love for WOOP</h3>
-                <div class="iframe-container"> <iframe width="560" height="315"
-                        src="https://www.youtube-nocookie.com/embed/Kzq1cLyhh0E" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe> </div>
-            </div>
-            <div class="wall-item">
-                <p> It's an excellent platform for all new moms. We learn a lot from each about baby issues and how to
-                    tackle these problems that we face in our daily lives. <span class="highlight">For me, Mommyship has become like my second
-                    family, where I can write and share whatever I feel</span>. Thank you Mommyship and WOOP! </p>
-                <figure>
-                    <div class="profile-img"> <img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200827/5f4739e5a741d-1598503397.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">CHOE DON</span> <span class="country">India</span>
-                    </div>
-                </figure>
-            </div>
-            <div class="wall-item video light">
-                <h3 class="video-title">Russian WOOPers Share Their Love for WOOP</h3>
-                <div class="iframe-container"> <iframe width="560" height="315"
-                        src="https://www.youtube-nocookie.com/embed/isp47bGgYOM" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe> </div>
-            </div>
-            <div class="wall-item light">
-                <p> WOOP is a great platform. We not only gain knowledge about good products but also win rewards,
-                    making it a win-win situation :). The best part of it is that <span class="highlight" style="color:#da1f72;">we can help girls get education by
-                    simply giving a little amount of time every day</span> from our busy schedule doing missions. </p>
-                <figure>
-                    <div class="profile-img"> <img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200827/5f473adce42ca-1598503644.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">PRITHVI KHADE</span> <span class="country">India</span>
-                    </div>
-                </figure>
-            </div>
-            <div class="wall-item light">
-                <p> Brilliant initiative. Education is a human right that should be given to all humans equally
-                    regardless of their gender, religion or nationality. I appreciate WOOP’s work and honesty. <span class="highlight" style="color: #b32f98;">Because
-                    of WOOP, millions of girls have the opportunity to develop their full potential and can follow their
-                    dreams</span>. Stay blessed. </p>
-                <figure>
-                    <div class="profile-img"> <img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200827/5f473b2dc2a70-1598503725.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">SHAKTI RUPANWAL</span> <span class="country">India</span>
-                    </div>
-                </figure>
-            </div>
-
-
-
-            <div class="wall-item">
-                <p> Mommyship is a great platform to connect with different moms, who guide each other on various topics, share knowledge, recipes, discuss our problems, & celebrate birthdays together! <span class="highlight">It is the only group where I can share my feelings when I am sad, and other moms motivate and guide me on how to remain positive.</span></p>
-                <figure>
-                    <div class="profile-img"><img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb4deeebb8-1603253470.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">RUBAL CHAWLA</span> <span class="country">India</span>
-                    </div>
-                </figure>
-            </div>
-
-            <div class="wall-item light">
-                <p>
-                    WOOP is the most beautiful platform for women by women. <span class="highlight" style="color:#da1f72;">Here you can get immense support, love, care and happiness.</span> This platform has assembled us to help each other with every problem, and you can find out the solution to your queries and problems related to parenthood. <span class="highlight" style="color:#da1f72;">I feel so proud of holding the title of a WOOPer.</span>
-                </p>
-                <figure>
-                    <div class="profile-img"><img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb54736cca-1603253575.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">PRAKRITI GUPTA</span> <span class="country">India</span>
-                    </div>
-                </figure>
-            </div>
-
-            <div class="wall-item light">
-                <p>
-                    There are no words to explain the
-                    importance of this community in my
-                    life. <span class="highlight" style="color: #b32f98;">I made several friends, share my
-                    opinions and cute baby pictures, get
-                    support from fellow moms, and learn
-                    quick solutions to solve my problems.</span> I've also learned so much about rituals
-                    and ceremonies celebrated by other
-                    countries before and after pregnancy. I
-                    am glad to be a part of this community.
-                    Thank you, WOOP.
-                </p>
-                <figure>
-                    <div class="profile-img"><img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb56680cbb-1603253606.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">SARIKA DHANJU</span> <span class="country">India</span>
-                    </div>
-                </figure>
-            </div>
-
-            <div class="wall-item">
-                <p>
-                    To me spending time with WOOP is very
-                    enjoyable, worth it and self-fulfilling
-                    because <span class="highlight">the feeling that you know you
-                    are doing a mission not just for you but
-                    for other people is what really attracts
-                    me to WOOP</span> and it is easy and fun.
-                    Thank you WOOP Philippines, for 
-                    helping me be a better mom.
-                </p>
-                <figure>
-                    <div class="profile-img"><img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb5941ba79-1603253652.png"
-                            alt=""></div>
-                    <div class="info"> <span class="name">JANINE ERICA IRA</span> <span class="country">Philippines</span>
-                    </div>
-                </figure>
-            </div>
-
-            <div class="wall-item light">
-                <p>
-                    When I first got acquainted with WOOP,
-                    I could not imagine that there would be
-                    so many exciting and useful missions
-                    coming up. Now, <span class="highlight" style="color:#da1f72;">my whole family is
-                    involved in the process.</span> My husband
-                    tested a few grooming products, and
-                    my son participates in Pampers
-                    programs. <span class="highlight" style="color:#da1f72;">I too, have learned a lot and
-                    created 9 class hours for
-                    underprivileged children.</span>
-                </p>
-                <figure>
-                    <div class="profile-img"><img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb5f39f6eb-1603253747.png"
-                            alt=""></div>
-                    <div class="info"> <span class="name">ANNA TKALENKO</span> <span class="country">Russia</span>
-                    </div>
-                </figure>
-            </div>
-
-            <div class="wall-item light">
-                <p>
-                    I absolutely love WOOP. Not only is it a
-                    lovely community, but it also allows me
-                    to test products that I wouldn't usually
-                    get the opportunity to, which in turn
-                    helps provide education to young girls
-                    abroad. It's a fabulous platform, the
-                    team makes you feel extremely
-                    welcome, and <span class="highlight" style="color: #b32f98;">there's no better feeling
-                    than knowing you are benefiting
-                    others less fortunate than yourself!</span> Keep up the excellent work WOOP!
-                </p>
-                <figure>
-                    <div class="profile-img"><img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb61721b70-1603253783.png"
-                            alt=""></div>
-                    <div class="info"> <span class="name">NAOMI JONES</span> <span class="country">UK</span>
-                    </div>
-                </figure>
-            </div>
-
-            <div class="wall-item">
-                <p>
-                    I can honestly say that WOOP is terrific.
-                    You won’t come across another platform
-                    like it. I have been fortunate so far to try
-                    new products (some even before they
-                    were available in the UK) and win
-                    vouchers from reputed brands. <span class="highlight">I love
-                    that I get to share my opinions and in
-                    return, know that I am helping young
-                    women around the globe to get an
-                    education.</span>
-                </p>
-                <figure>
-                    <div class="profile-img"><img
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb64016bcf-1603253824.png"
-                            alt=""></div>
-                    <div class="info"> <span class="name">ALICE DIXON</span> <span class="country">UK</span>
-                    </div>
-                </figure>
-            </div>
-
-        </div>
-    </div>
-    <div class="wall-wrapper">
-        <div class="title-bar" style="margin-top: 15px;">
-            <h2><span class="icon"></span> Hear what our <span class="linebreak">clients say</span></h2>
-        </div>
-        <div class="wall">
-            <div class="wall-item">
-                <p class="client">
-                    <span class="highlight">WOOP offers a unique combination of rational and emotional motivations to consumers.</span>This has helped us not only engage deeper but also sustain the engagement with our target consumer over a period of time. This deep engagement has generated multiple benefits - high-quality peer advocacy, brand preference and insights.
-                </p>
-                <figure>
-                    <div class="profile-img"> <img style="border: none;" class="noborder"
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fab34105a8-1603250996.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">Pooja Baid</span> <span class="country">Director - Marketing, Health & wellness
-                            <br>Philips Avent India</span> </div>
-                </figure>
-            </div>
-            <div class="wall-item light">
-                <p class="client"> The Pampers campaign on WOOP was very successful. <span class="highlight" style="color:#da1f72;">More than 50% of moms talked about Pampers on
-                    their own Facebook timeline. This is more credible than paid brand advertising</span>. We also got 300+
-                    reviews in a short period and over 500+ videos from moms and their babies using the brand jingle.
-                </p>
-                <figure>
-                    <div class="profile-img"> <img class="noborder"
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200909/5f58c620ea26d-1599653408.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">Lester Estrada</span> <span class="country">Marketing Director
-                            <br>P&G, Philippines</span> </div>
-                </figure>
-            </div>
-            <div class="wall-item video">
-                <h3 class="video-title">Client Testimonial - Pooja Baid - Director - Marketing, Health & Wellness -
-                    Philips Avent</h3>
-                <div class="iframe-container"> <iframe width="560" height="315"
-                        src="https://www.youtube-nocookie.com/embed/6oLe-Jan-RQ" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe> </div>
-            </div>
-            <div class="wall-item light">
-                <p class="client"> <span class="highlight" style="color: #b32f98;">The interactive engagement on WOOP through missions was a very innovative way to educate women about
-                    feminine hygiene and our associated product</span>. Any topic or issue which requires deeper engagement can
-                    benefit from the WOOP model. The social impact part of WOOP truly makes this engagement model a
-                    win-win for everyone. </p>
-                <figure>
-                    <div class="profile-img"> <img class="noborder"
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200909/5f58c6df91acb-1599653599.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">Jill Mills</span> <span class="country">Marketing Manager
-                            <br>Mundipharma UK</span> </div>
-                </figure>
-            </div>
-            <div class="wall-item">
-                <p class="client"> <span class="highlight">WOOP is a powerful platform that allows us to engage with the right target audience, create genuine
-                    brand advocates and sustain engagement with trialists over an extended period</span>. The ability to drive
-                    education in a fun way, generate advocacy, user-generated content and actionable insights makes WOOP
-                    a powerful tool for any marketer to leverage brand communities. </p>
-                <figure>
-                    <div class="profile-img"> <img style="border: none;" class="noborder"
-                            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200909/5f58c7ca5c9d3-1599653834.png"
-                            alt=""> </div>
-                    <div class="info"> <span class="name">Ketan Mohile</span> <span class="country">Category Head
-                            <br>Cipla India</span> </div>
-                </figure>
+            <div class="kv-content"> <img class="woop-logo"
+                    src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200901/5f4e3cb5a894f-1598962869.png"
+                    alt="">
+                <h2>Book  <span class="sm-font">of</span> <span class="love"></span></h2>
+                <p> Why 1.8 Million Moms and <br>70+ Brands Adore WOOP </p>
             </div>
         </div>
-    </div>
-    <div class="kv-header"> 
-        <img class="desktop-kv"
-            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201023/5f92e0503c126-1603461200.jpg"
-            alt="kvimage"> <img class="mobile-kv"
-            src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201023/5f92e08035369-1603461248.jpg"
-            alt="">
-        <div class="kv-content bottom"> <img class="woop-logo"
-                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200901/5f4e3cb5a894f-1598962869.png"
+        <div class="wall-wrapper">
+            <div class="title-bar">
+                <h2><span class="icon"></span> Hear what our <span class="linebreak">WOOPers say</span></h2>
+            </div>
+            <div class="wall">
+                <div class="wall-item">
+                    <p> WOOP is the <span class="highlight">first-ever platform that listens to women’s opinions</span>. They provide us with missions to
+                        complete, and once the task is completed, you get rewarded. Doesn’t that sound cool? You earn
+                        rewards by simply completing easy missions, and this also creates school days for children in India
+                        and all over the world. I learned about this platform through my sister and have been recommending
+                        WOOP to everyone since. You guys are doing an ace job. Lots of love! </p>
+                    <figure>
+                        <div class="profile-img"> <img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200826/5f465d461273f-1598446918.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">MOMINA AKHTAR</span> <span class="country">India</span> </div>
+                    </figure>
+                </div>
+                <div class="wall-item video light">
+                    <h3 class="video-title">Hear from Women on WOOP, talk about why they joined!</h3>
+                    <div class="iframe-container"> <iframe width="560" height="315"
+                            src="https://www.youtube-nocookie.com/embed/fkwV31A1oD0" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe> </div>
+                </div>
+                <div class="wall-item light">
+                    <p> Thank you WOOP! <span class="highlight" style="color:#da1f72 ">Thanks to the missions and programs, I added a new section, “one review - one
+                        product” to my YouTube channel</span>. Writing reviews has become an essential part of my life, and I’m
+                        pleased about it. And, of course, one of the most pleasant bonuses (apart from prizes) is creating
+                        school hours for children from low-income families. </p>
+                    <figure>
+                        <div class="profile-img"> <img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200826/5f465fdf69609-1598447583.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">TATYANA BESONOVA</span> <span class="country">Russia</span> </div>
+                    </figure>
+                </div>
+                <div class="wall-item video">
+                    <h3 class="video-title">Indian WOOPer Shares Her Love for WOOP</h3>
+                    <div class="iframe-container"> <iframe width="560" height="315"
+                            src="https://www.youtube-nocookie.com/embed/MWw4mkRFdsA" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe> </div>
+                </div>
+                <div class="wall-item light">
+                    <p> Highly recommended! I’m personally glad that WOOP exists. This team is a gift! <span class="highlight" style="color: #b32f98">They unite women from
+                        around the globe virtually and conduct fun missions that benefit both parties</span>. They provide
+                        opportunities to less fortunate children and reward women who do their best to complete tasks and
+                        invite friends. I took part in some of their missions, and it was worth it! </p>
+                    <figure>
+                        <div class="profile-img"> <img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200826/5f466026df594-1598447654.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">ANNA PERENA</span> <span class="country">Philippines</span> </div>
+                    </figure>
+                </div>
+                <div class="wall-item video light">
+                    <h3 class="video-title">Indonesian WOOPers Share Their Love for WOOP</h3>
+                    <div class="iframe-container"> <iframe width="560" height="315"
+                            src="https://www.youtube-nocookie.com/embed/Kzq1cLyhh0E" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe> </div>
+                </div>
+                <div class="wall-item">
+                    <p> It's an excellent platform for all new moms. We learn a lot from each about baby issues and how to
+                        tackle these problems that we face in our daily lives. <span class="highlight">For me, Mommyship has become like my second
+                        family, where I can write and share whatever I feel</span>. Thank you Mommyship and WOOP! </p>
+                    <figure>
+                        <div class="profile-img"> <img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200827/5f4739e5a741d-1598503397.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">CHOE DON</span> <span class="country">India</span>
+                        </div>
+                    </figure>
+                </div>
+                <div class="wall-item video light">
+                    <h3 class="video-title">Russian WOOPers Share Their Love for WOOP</h3>
+                    <div class="iframe-container"> <iframe width="560" height="315"
+                            src="https://www.youtube-nocookie.com/embed/isp47bGgYOM" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe> </div>
+                </div>
+                <div class="wall-item light">
+                    <p> WOOP is a great platform. We not only gain knowledge about good products but also win rewards,
+                        making it a win-win situation :). The best part of it is that <span class="highlight" style="color:#da1f72;">we can help girls get education by
+                        simply giving a little amount of time every day</span> from our busy schedule doing missions. </p>
+                    <figure>
+                        <div class="profile-img"> <img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200827/5f473adce42ca-1598503644.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">PRITHVI KHADE</span> <span class="country">India</span>
+                        </div>
+                    </figure>
+                </div>
+                <div class="wall-item light">
+                    <p> Brilliant initiative. Education is a human right that should be given to all humans equally
+                        regardless of their gender, religion or nationality. I appreciate WOOP’s work and honesty. <span class="highlight" style="color: #b32f98;">Because
+                        of WOOP, millions of girls have the opportunity to develop their full potential and can follow their
+                        dreams</span>. Stay blessed. </p>
+                    <figure>
+                        <div class="profile-img"> <img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200827/5f473b2dc2a70-1598503725.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">SHAKTI RUPANWAL</span> <span class="country">India</span>
+                        </div>
+                    </figure>
+                </div>
+
+
+
+                <div class="wall-item">
+                    <p> Mommyship is a great platform to connect with different moms, who guide each other on various topics, share knowledge, recipes, discuss our problems, & celebrate birthdays together! <span class="highlight">It is the only group where I can share my feelings when I am sad, and other moms motivate and guide me on how to remain positive.</span></p>
+                    <figure>
+                        <div class="profile-img"><img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb4deeebb8-1603253470.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">RUBAL CHAWLA</span> <span class="country">India</span>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="wall-item light">
+                    <p>
+                        WOOP is the most beautiful platform for women by women. <span class="highlight" style="color:#da1f72;">Here you can get immense support, love, care and happiness.</span> This platform has assembled us to help each other with every problem, and you can find out the solution to your queries and problems related to parenthood. <span class="highlight" style="color:#da1f72;">I feel so proud of holding the title of a WOOPer.</span>
+                    </p>
+                    <figure>
+                        <div class="profile-img"><img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb54736cca-1603253575.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">PRAKRITI GUPTA</span> <span class="country">India</span>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="wall-item light">
+                    <p>
+                        There are no words to explain the
+                        importance of this community in my
+                        life. <span class="highlight" style="color: #b32f98;">I made several friends, share my
+                        opinions and cute baby pictures, get
+                        support from fellow moms, and learn
+                        quick solutions to solve my problems.</span> I've also learned so much about rituals
+                        and ceremonies celebrated by other
+                        countries before and after pregnancy. I
+                        am glad to be a part of this community.
+                        Thank you, WOOP.
+                    </p>
+                    <figure>
+                        <div class="profile-img"><img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb56680cbb-1603253606.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">SARIKA DHANJU</span> <span class="country">India</span>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="wall-item">
+                    <p>
+                        To me spending time with WOOP is very
+                        enjoyable, worth it and self-fulfilling
+                        because <span class="highlight">the feeling that you know you
+                        are doing a mission not just for you but
+                        for other people is what really attracts
+                        me to WOOP</span> and it is easy and fun.
+                        Thank you WOOP Philippines, for 
+                        helping me be a better mom.
+                    </p>
+                    <figure>
+                        <div class="profile-img"><img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb5941ba79-1603253652.png"
+                                alt=""></div>
+                        <div class="info"> <span class="name">JANINE ERICA IRA</span> <span class="country">Philippines</span>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="wall-item light">
+                    <p>
+                        When I first got acquainted with WOOP,
+                        I could not imagine that there would be
+                        so many exciting and useful missions
+                        coming up. Now, <span class="highlight" style="color:#da1f72;">my whole family is
+                        involved in the process.</span> My husband
+                        tested a few grooming products, and
+                        my son participates in Pampers
+                        programs. <span class="highlight" style="color:#da1f72;">I too, have learned a lot and
+                        created 9 class hours for
+                        underprivileged children.</span>
+                    </p>
+                    <figure>
+                        <div class="profile-img"><img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb5f39f6eb-1603253747.png"
+                                alt=""></div>
+                        <div class="info"> <span class="name">ANNA TKALENKO</span> <span class="country">Russia</span>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="wall-item light">
+                    <p>
+                        I absolutely love WOOP. Not only is it a
+                        lovely community, but it also allows me
+                        to test products that I wouldn't usually
+                        get the opportunity to, which in turn
+                        helps provide education to young girls
+                        abroad. It's a fabulous platform, the
+                        team makes you feel extremely
+                        welcome, and <span class="highlight" style="color: #b32f98;">there's no better feeling
+                        than knowing you are benefiting
+                        others less fortunate than yourself!</span> Keep up the excellent work WOOP!
+                    </p>
+                    <figure>
+                        <div class="profile-img"><img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb61721b70-1603253783.png"
+                                alt=""></div>
+                        <div class="info"> <span class="name">NAOMI JONES</span> <span class="country">UK</span>
+                        </div>
+                    </figure>
+                </div>
+
+                <div class="wall-item">
+                    <p>
+                        I can honestly say that WOOP is terrific.
+                        You won’t come across another platform
+                        like it. I have been fortunate so far to try
+                        new products (some even before they
+                        were available in the UK) and win
+                        vouchers from reputed brands. <span class="highlight">I love
+                        that I get to share my opinions and in
+                        return, know that I am helping young
+                        women around the globe to get an
+                        education.</span>
+                    </p>
+                    <figure>
+                        <div class="profile-img"><img
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fb64016bcf-1603253824.png"
+                                alt=""></div>
+                        <div class="info"> <span class="name">ALICE DIXON</span> <span class="country">UK</span>
+                        </div>
+                    </figure>
+                </div>
+
+            </div>
+        </div>
+        <div class="wall-wrapper">
+            <div class="title-bar" style="margin-top: 15px;">
+                <h2><span class="icon"></span> Hear what our <span class="linebreak">clients say</span></h2>
+            </div>
+            <div class="wall">
+                <div class="wall-item">
+                    <p class="client">
+                        <span class="highlight">WOOP offers a unique combination of rational and emotional motivations to consumers.</span>This has helped us not only engage deeper but also sustain the engagement with our target consumer over a period of time. This deep engagement has generated multiple benefits - high-quality peer advocacy, brand preference and insights.
+                    </p>
+                    <figure>
+                        <div class="profile-img"> <img style="border: none;" class="noborder"
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fab34105a8-1603250996.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">Pooja Baid</span> <span class="country">Director - Marketing, Health & wellness
+                                <br>Philips Avent India</span> </div>
+                    </figure>
+                </div>
+                <div class="wall-item light">
+                    <p class="client"> The Pampers campaign on WOOP was very successful. <span class="highlight" style="color:#da1f72;">More than 50% of moms talked about Pampers on
+                        their own Facebook timeline. This is more credible than paid brand advertising</span>. We also got 300+
+                        reviews in a short period and over 500+ videos from moms and their babies using the brand jingle.
+                    </p>
+                    <figure>
+                        <div class="profile-img"> <img class="noborder"
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200909/5f58c620ea26d-1599653408.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">Lester Estrada</span> <span class="country">Marketing Director
+                                <br>P&G, Philippines</span> </div>
+                    </figure>
+                </div>
+                <div class="wall-item video">
+                    <h3 class="video-title">Client Testimonial - Pooja Baid - Director - Marketing, Health & Wellness -
+                        Philips Avent</h3>
+                    <div class="iframe-container"> <iframe width="560" height="315"
+                            src="https://www.youtube-nocookie.com/embed/6oLe-Jan-RQ" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe> </div>
+                </div>
+                <div class="wall-item light">
+                    <p class="client"> <span class="highlight" style="color: #b32f98;">The interactive engagement on WOOP through missions was a very innovative way to educate women about
+                        feminine hygiene and our associated product</span>. Any topic or issue which requires deeper engagement can
+                        benefit from the WOOP model. The social impact part of WOOP truly makes this engagement model a
+                        win-win for everyone. </p>
+                    <figure>
+                        <div class="profile-img"> <img class="noborder"
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200909/5f58c6df91acb-1599653599.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">Jill Mills</span> <span class="country">Marketing Manager
+                                <br>Mundipharma UK</span> </div>
+                    </figure>
+                </div>
+                <div class="wall-item">
+                    <p class="client"> <span class="highlight">WOOP is a powerful platform that allows us to engage with the right target audience, create genuine
+                        brand advocates and sustain engagement with trialists over an extended period</span>. The ability to drive
+                        education in a fun way, generate advocacy, user-generated content and actionable insights makes WOOP
+                        a powerful tool for any marketer to leverage brand communities. </p>
+                    <figure>
+                        <div class="profile-img"> <img style="border: none;" class="noborder"
+                                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200909/5f58c7ca5c9d3-1599653834.png"
+                                alt=""> </div>
+                        <div class="info"> <span class="name">Ketan Mohile</span> <span class="country">Category Head
+                                <br>Cipla India</span> </div>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <div class="kv-header"> 
+            <img class="desktop-kv"
+                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201023/5f92e0503c126-1603461200.jpg"
+                alt="kvimage"> <img class="mobile-kv"
+                src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201023/5f92e08035369-1603461248.jpg"
                 alt="">
-            <ul class="woop-details">
-                <li>7 Countries</li>
-                <li>2 Million Moms</li>
-                <li>1 Platform</li>
-            </ul>
-            <ul class="woop-contact">
-                <li>letstalk@woopworld.in</li>
-                <li>www.woop.world</li>
-            </ul>
+            <div class="kv-content bottom"> <img class="woop-logo"
+                    src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200901/5f4e3cb5a894f-1598962869.png"
+                    alt="">
+                <ul class="woop-details">
+                    <li>7 Countries</li>
+                    <li>2 Million Moms</li>
+                    <li>1 Platform</li>
+                </ul>
+                <ul class="woop-contact">
+                    <li>letstalk@woopworld.in</li>
+                    <li>www.woop.world</li>
+                </ul>
+            </div>
         </div>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"> </script>
+        <script src="https://journylab-dev.s3-ap-southeast-1.amazonaws.com/js/jaliswall.js"></script>
+        <script type="text/javascript">
+            $(".wall").jaliswall({
+                item: ".wall-item",
+                columnClass: ".wall-column"
+            });
+        </script>
     </div>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"> </script>
-    <script src="https://journylab-dev.s3-ap-southeast-1.amazonaws.com/js/jaliswall.js"></script>
-    <script type="text/javascript">
-        $(".wall").jaliswall({
-            item: ".wall-item",
-            columnClass: ".wall-column"
-        });
-    </script>
-</div>
+</body>
