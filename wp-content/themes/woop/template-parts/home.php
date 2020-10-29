@@ -33,7 +33,20 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
 	<!--desktop-->
 	<div class="d-none d-sm-block">
 		<div class="boxes frstbx">
-        <h2 class="number counter1"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter1',true);?></h2>
+            <?php
+            $women_signed_up_counter_increment = get_post_meta( get_the_ID(),'women_signed_up_counter_increment',true);
+            $women_signed_up_counter_increment_days = get_post_meta( get_the_ID(),'women_signed_up_counter_increment_days',true);
+            $women_signed_up_counter_start_date = get_post_meta( get_the_ID(),'women_signed_up_counter_start_date',true);
+
+            $date1=date_create($women_signed_up_counter_start_date);
+            $date2=date_create(date('Y-m-d'));
+            $diff=date_diff($date1,$date2);
+
+            $increment = intval($diff->days/$women_signed_up_counter_increment_days);
+            $women_signed_up = get_post_meta( get_the_ID(),'wpcf-banner-counter1',true) + $increment * $women_signed_up_counter_increment;
+            $women_signed_up = number_format($women_signed_up);
+            ?>
+        <h2 class="number counter1"><?php echo $women_signed_up;?></h2>
         <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title1',true);?></h6>
       </div>
       <div class="boxes scndbx">
@@ -74,7 +87,7 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
 
 	<div class="d-sm-none d-block">
 		<div class="boxes frstbx">
-        <h2 class="number counter1"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter1',true);?></h2>
+        <h2 class="number counter1"><?php echo $women_signed_up;?></h2>
         <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title1',true);?></h6>
       </div>
       <div class="boxes scndbx">
@@ -876,13 +889,10 @@ $days  = $today->diff($startday)->format('%a');
 $homefirst = $cntamt + $days*$cntincramt;
 	 
 // getting banner auto counter limit values
-$counter1_limit = get_post_meta( 15 ,'wpcf-banner-counter1',true);
+//$counter1_limit = get_post_meta( 15 ,'wpcf-banner-counter1',true);
+$counter1_limit = $women_signed_up;
 $counter2_limit = get_post_meta( 15 ,'wpcf-banner-counter2',true);
 $counter3_limit = get_post_meta( 15 ,'wpcf-banner-counter3',true);?>
-
-	 
-
-
 
 <script>
     $(window).on('beforeunload', function () {
