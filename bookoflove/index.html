@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        @import url("https://fonts.googleapis.com/css?family=Poppins");
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
         .navbar {
             display: none;
@@ -25,7 +25,7 @@
         }
 
         body {
-            font-family: "Montserrat", sans-serif;
+            font-family: 'Open Sans', sans-serif;
             font-style: normal;
             margin: 24px;
             background: #ffffff;
@@ -89,7 +89,6 @@
             justify-content: center;
             flex-direction: column;
             text-align: left;
-            /* margin-top: 30px; */
         }
 
         .kv-content .woop-logo {
@@ -101,8 +100,8 @@
 
         .kv-content h2 {
             position: relative;
-            font-family: "Monserrat", sans-serif;
-            font-weight: 600;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
             font-size: 48px;
             line-height: 40px;
             color: #fff;
@@ -127,7 +126,7 @@
         }
 
         .kv-content p {
-            font-family: "Montserrat", sans-serif;
+            font-family: 'Open Sans', sans-serif;
             font-weight: 600;
             font-size: 15px;
             line-height: 26px;
@@ -155,6 +154,14 @@
             font-family: "Montserrat", sans-serif;
             font-weight: 600;
         }
+        .kv-content ul.woop-contact li a {
+            text-decoration: none;
+            color: #fff;
+            transition: all 450ms ease-out;
+        }
+        .kv-content ul.woop-contact li a:hover {
+            text-decoration: underline;
+        }
 
         .kv-content ul li {
             color: #fff;
@@ -164,13 +171,11 @@
 
         @media (max-width: 475px) {
             .kv-content {
-                left: 40px;
-                bottom: 80px;
+                left: 0;
+                right: 0;
+                align-items: center;
+                bottom: 5%;
             }
-
-            /* .kv-content.bottom {
-                bottom: 80px;
-            } */
 
             .kv-content .woop-logo {
                 width: 90px;
@@ -179,6 +184,7 @@
 
             .kv-content h2 {
                 font-size: 36px;
+                margin-bottom: 15px;
             }
 
             .kv-content h2 .sm-font {
@@ -189,16 +195,16 @@
                 width: 110px;
                 height: 60px;
             }
+
+            .kv-content ul.woop-details,  .kv-content ul.woop-contact {
+                text-align: center;
+            }
         }
 
         @media (max-width: 320px) {
-            .kv-content h2 .love {
-                display: block;
-                margin-left: 0;
-                margin-top: 15px;
-                width: 119px;
-                height: 62px;
-            } 
+            .kv-content h2 {
+                margin-bottom: 10px;
+            }
         }
 
         .title-bar {
@@ -211,7 +217,7 @@
 
         .title-bar h2 {
             font-family: "Montserrat", sans-serif;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 24px;
             line-height: 33px;
             letter-spacing: 1.2px;
@@ -276,7 +282,9 @@
 
         .wall-item.light {
             /* background: #fff; */
-            background: #fff9f6;
+            /* background: #fff9f6; */
+            /* background: linear-gradient(90deg,#fffdf7,#fdf6f7 100%); */
+            background: linear-gradient(90deg,#fffbed,#ffedf0 100%);
         }
 
         .wall-item.light:before {
@@ -296,7 +304,7 @@
         }
 
         .wall-item .highlight {
-            font-family: "Montserrat", sans-serif;
+            font-family: 'Open Sans', sans-serif;
             font-weight: 400;
             /* font-size: 15px; */
             color: #fccc2a;
@@ -327,18 +335,18 @@
 
         .wall-item p {
             position: relative;
-            font-family: "Montserrat", sans-serif;
+            font-family: 'Open Sans', sans-serif;
             font-weight: 400;
             color: #fff;
-            font-size: 15px;
-            line-height: 28px;
+            font-size: 14px;
+            line-height: 24px;
             letter-spacing: 0.8px;
             z-index: 5;
         }
 
         .wall-item p.client {
-            font-size: 22px;
-            line-height: 32px;
+            font-size: 16px;
+            line-height: 28px;
         }
 
         .wall-item figure {
@@ -384,7 +392,8 @@
         .wall-item h3 {
             font-size: 18px;
             color: #fff;
-            font-family: sans-serif;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
             padding-bottom: 15px;
             padding: 20px;
             position: relative;
@@ -452,8 +461,8 @@
             <div class="kv-content"> <img class="woop-logo"
                     src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200901/5f4e3cb5a894f-1598962869.png"
                     alt="">
-                <h2>Book  <span class="sm-font">of</span> <span class="love"></span></h2>
-                <p> Why 1.8 Million Moms and <br>70+ Brands Adore WOOP </p>
+                <h2>Wall <span class="sm-font">of</span> <span class="love"></span></h2>
+                <p>Why 2 Million Moms and <br>70+ Brands Love WOOP</p>
             </div>
         </div>
         <div class="wall-wrapper">
@@ -678,7 +687,7 @@
 
                 <div class="wall-item">
                     <p>
-                        I can honestly say that WOOP is terrific.
+                        I can honestly say that WOOP is terrific. 
                         You won’t come across another platform
                         like it. I have been fortunate so far to try
                         new products (some even before they
@@ -714,7 +723,7 @@
                                 src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201021/5f8fab34105a8-1603250996.png"
                                 alt=""> </div>
                         <div class="info"> <span class="name">Pooja Baid</span> <span class="country">Director - Marketing, Health & wellness
-                                <br>Philips Avent India</span> </div>
+                                <br><strong>Philips Avent India</strong></span></div>
                     </figure>
                 </div>
                 <div class="wall-item light">
@@ -727,7 +736,7 @@
                                 src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200909/5f58c620ea26d-1599653408.png"
                                 alt=""> </div>
                         <div class="info"> <span class="name">Lester Estrada</span> <span class="country">Marketing Director
-                                <br>P&G, Philippines</span> </div>
+                                <br><strong>P&G</strong>, Philippines</span> </div>
                     </figure>
                 </div>
                 <div class="wall-item video">
@@ -748,7 +757,7 @@
                                 src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200909/5f58c6df91acb-1599653599.png"
                                 alt=""> </div>
                         <div class="info"> <span class="name">Jill Mills</span> <span class="country">Marketing Manager
-                                <br>Mundipharma UK</span> </div>
+                                <br><strong>Mundipharma UK</strong></span> </div>
                     </figure>
                 </div>
                 <div class="wall-item">
@@ -761,8 +770,12 @@
                                 src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200909/5f58c7ca5c9d3-1599653834.png"
                                 alt=""> </div>
                         <div class="info"> <span class="name">Ketan Mohile</span> <span class="country">Category Head
-                                <br>Cipla India</span> </div>
+                                <br><strong>Cipla India</strong></span> </div>
                     </figure>
+                </div>
+                <div class="wall-item video">
+                    <h3 class="video-title">Client Testimonials - Why Brands Trust WOOP</h3>
+                    <div class="iframe-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/ApG87gIX8TI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </div>
             </div>
         </div>
@@ -781,8 +794,7 @@
                     <li>1 Platform</li>
                 </ul>
                 <ul class="woop-contact">
-                    <li>letstalk@woopworld.in</li>
-                    <li>www.woop.world</li>
+                    <li><a href="https://www.woop.world/#partner-with_us">Contact Us</a> </li>
                 </ul>
             </div>
         </div>
