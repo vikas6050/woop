@@ -67,7 +67,10 @@ $pageid= get_the_ID();
             					<a class="nav-link" href="<?php echo site_url();?>/#partner-with_us">Contact Us</a>
           					</li>
         
-          
+							  <li class="nav-item">
+            					<a class="nav-link" href="<?php echo site_url();?>/bookoflove">Wall of Love</a>
+							  </li>
+							  
         				</ul>
       				</div>
     			</nav>
