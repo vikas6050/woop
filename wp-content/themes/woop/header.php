@@ -68,7 +68,7 @@ $pageid= get_the_ID();
           					</li>
         
 							  <li class="nav-item">
-            					<a class="nav-link" href="<?php echo site_url();?>/bookoflove">Wall of Love</a>
+            					<a class="nav-link" href="<?php echo site_url();?>/walloflove">Wall of Love</a>
 							  </li>
 							  
         				</ul>
