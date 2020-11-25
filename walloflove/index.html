@@ -37,6 +37,24 @@
             max-width: 100%;
         }
 
+        .mobile-nav {
+            display: none;
+            justify-content: center;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+            padding-top: 30px;
+        }
+        .mobile-nav img {
+            width: 120px;
+        }
+
+        @media (max-width: 475px) {
+            .mobile-nav {
+                display: flex;
+            }
+        }
+
         .kv-header {
             position: relative;
             text-align: center;
@@ -70,6 +88,10 @@
             display: table-header-group;
         }
 
+        .kv-header.footer .mobile-logo {
+            display: none;
+        }
+
         @media (max-width: 475px) {
             .desktop-kv {
                 display: none;
@@ -77,6 +99,21 @@
 
             .mobile-kv {
                 display: block;
+            }
+
+            .kv-content .woop-logo {
+                display: none;
+            }
+
+            .kv-header.footer .mobile-logo {
+                display: block;
+                position: absolute;
+                top: 30px;
+                width: 120px;
+                height: auto;
+                object-fit: contain;
+                margin: auto;
+                z-index: 10;
             }
         }
 
@@ -174,7 +211,7 @@
                 left: 0;
                 right: 0;
                 align-items: center;
-                bottom: 5%;
+                bottom: 8%;
             }
 
             .kv-content .woop-logo {
@@ -281,10 +318,8 @@
         }
 
         .wall-item.light {
-            /* background: #fff; */
-            /* background: #fff9f6; */
-            /* background: linear-gradient(90deg,#fffdf7,#fdf6f7 100%); */
-            background: linear-gradient(90deg,#fffbed,#ffedf0 100%);
+            /* background: linear-gradient(90deg,#fffbed,#ffedf0 100%); */
+            background: linear-gradient(90deg,#fffdf7,#fdf6f7 100%);
         }
 
         .wall-item.light:before {
@@ -453,6 +488,12 @@
 
 <body>
     <div class="wrapper">
+        <div class="mobile-nav">
+            <img 
+                    class="woop-logo"
+                    src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200901/5f4e3cb5a894f-1598962869.png"
+                    alt="">
+        </div>
         <div class="kv-header"> <img class="desktop-kv"
                 src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200901/5f4de3ce6a69e-1598940110.jpg"
                 alt="kvimage"> <img class="mobile-kv"
@@ -779,7 +820,10 @@
                 </div>
             </div>
         </div>
-        <div class="kv-header"> 
+        <div class="kv-header footer">
+            <img class="woop-logo mobile-logo"
+                    src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20200901/5f4e3cb5a894f-1598962869.png"
+                    alt="">
             <img class="desktop-kv"
                 src="https://journylab-staging.s3.ap-southeast-1.amazonaws.com/ueditor/20201023/5f92e0503c126-1603461200.jpg"
                 alt="kvimage"> <img class="mobile-kv"
@@ -794,7 +838,7 @@
                     <li>1 Platform</li>
                 </ul>
                 <ul class="woop-contact">
-                    <li><a href="https://www.woop.world/#partner-with_us">Contact Us</a> </li>
+                    <li><a href="https://www.woop.world/#partner-with_us">Contact Us</a></li>
                 </ul>
             </div>
         </div>
