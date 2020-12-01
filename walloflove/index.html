@@ -46,7 +46,7 @@
             padding-top: 30px;
         }
         .mobile-nav img {
-            /* width: 120px; */
+            /* width: 110px; */
             max-height: 30px;
         }
 
@@ -76,6 +76,7 @@
         .kv-header img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
 
         .mobile-kv {
@@ -100,17 +101,17 @@
 
             .mobile-kv {
                 display: block;
+                /* object-fit: cover; */
             }
 
-            .kv-content .woop-logo {
+            /* .kv-content .woop-logo {
                 display: none;
-            }
+            } */
 
             .kv-header.footer .mobile-logo {
-                display: block;
+                /* display: block; */
                 position: absolute;
                 top: 30px;
-                /* width: 120px; */
                 max-height: 30px;
                 object-fit: contain;
                 margin: auto;
@@ -214,10 +215,19 @@
                 align-items: center;
                 bottom: 8%;
             }
+            .kv-content.bottom {
+                bottom: 25%;
+            }
+
+            .kv-content.bottom .woop-logo {
+                max-height: 30px;
+                display: block;
+            }
 
             .kv-content .woop-logo {
-                width: 90px;
+                /* width: 110px; */
                 /* margin-bottom: 10px; */
+                display: none;
             }
 
             .kv-content h2 {
@@ -320,7 +330,8 @@
 
         .wall-item.light {
             /* background: linear-gradient(90deg,#fffbed,#ffedf0 100%); */
-            background: linear-gradient(90deg,#fffdf7,#fdf6f7 100%);
+            /* background: linear-gradient(90deg,#fffdf7,#fdf6f7 100%); */
+            background: linear-gradient(90deg,#fff9e8,#ffe5e8 100%);
         }
 
         .wall-item.light:before {
