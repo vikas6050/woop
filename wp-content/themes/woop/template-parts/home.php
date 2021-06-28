@@ -80,78 +80,6 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
     </div>
   </section>
 
-<!--philosophy section starts here-->
-<!--mobile-->
-<div class="mbl_bnr_ft">
-	
-
-	<div class="d-sm-none d-block">
-		<div class="boxes frstbx">
-        <h2 class="number counter1"><?php echo $women_signed_up;?></h2>
-        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title1',true);?></h6>
-      </div>
-      <div class="boxes scndbx">
-        <h2 class="number counter2_top"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter2',true);?></h2>
-        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title2',true);?></h6>
-      </div>
-      <div class="boxes thrdbx">
-        <h2 class="number counter3"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter3',true);?></h2>
-        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title3',true);?></h6>
-      </div>
-	</div>
-    
-    <div class="cntnt d-sm-none d-block">
-        <p><?php echo get_post_meta( get_the_ID(),'wpcf-banner-notice',true);?></p>
-      </div>
-</div>
-
-<?php
-$philosophy_slug = 'our-philosophy';
-$philosophy_obj = get_post_type_object( $philosophy_slug );
-
-$philosophy_args = array(
-                  'post_type'   => $philosophy_slug,
-                  'post_status' => 'publish',
-                  'numberposts' => 3,
-                  'orderby'     =>'date',
-                  'order'       =>'ASC'
-                );
-$philosophy_results = get_posts( $philosophy_args );
-
-if( $philosophy_results ){
-	?>
-	<section class="Philosophy" id="scroll_now">
-		<div class="container">
-		  <div class="row">
-			<div class="col-lg-12">
-			  <h2><?php echo get_post_meta( 79, 'wpcf-philosophy-and-vision-title',true);?></h2>
-			  <p class="frst"> <?php echo get_post_meta( 79, 'wpcf-philosophy-and-vision-content',true);?>
-			  </p>
-			</div>
-		  </div>
-		  <div class="row catogry">
-			  <?php foreach( $philosophy_results as $philosophy_result ){
-			        $philosophy_featured = get_the_post_thumbnail_url( $philosophy_result->ID );?>
-					<div class="col-md-4">
-						  <div class="wdth">
-							<img src="<?php echo $philosophy_featured;?>" class="img-fluid" alt="<?php echo  $philosophy_result->post_title;?>">
-						  </div>
-
-			  			<h3><?php echo  $philosophy_result->post_title;?></h3>
-                        <?php $post_content = str_replace('[DO_GOOD_ACTIONS_COUNT]',get_post_meta( get_the_ID(),'wpcf-banner-counter3',true), $philosophy_result->post_content)?>
-			  			<p><?php echo  wp_trim_words(  $post_content, 30,'...');?></p>
-					</div>
-	          <?php }?>
-			
-			
-			
-
-		  </div>
-		</div>
-	  </section>
-<?php } ?>
-<!--philosophy section ends here-->
-
 <!--marketing roi section starts here-->
 <section class="woop_en_roi home_woop">
      <div class="container">
@@ -346,6 +274,81 @@ if( $philosophy_results ){
       			</div>
 </section>
 <!--clients section ends here-->
+
+
+
+<!--philosophy section starts here-->
+<!--mobile-->
+<div class="mbl_bnr_ft">
+	
+
+	<div class="d-sm-none d-block">
+		<div class="boxes frstbx">
+        <h2 class="number counter1"><?php echo $women_signed_up;?></h2>
+        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title1',true);?></h6>
+      </div>
+      <div class="boxes scndbx">
+        <h2 class="number counter2_top"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter2',true);?></h2>
+        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title2',true);?></h6>
+      </div>
+      <div class="boxes thrdbx">
+        <h2 class="number counter3"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter3',true);?></h2>
+        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title3',true);?></h6>
+      </div>
+	</div>
+    
+    <div class="cntnt d-sm-none d-block">
+        <p><?php echo get_post_meta( get_the_ID(),'wpcf-banner-notice',true);?></p>
+      </div>
+</div>
+
+<?php
+$philosophy_slug = 'our-philosophy';
+$philosophy_obj = get_post_type_object( $philosophy_slug );
+
+$philosophy_args = array(
+                  'post_type'   => $philosophy_slug,
+                  'post_status' => 'publish',
+                  'numberposts' => 3,
+                  'orderby'     =>'date',
+                  'order'       =>'ASC'
+                );
+$philosophy_results = get_posts( $philosophy_args );
+
+if( $philosophy_results ){
+	?>
+	<section class="Philosophy" id="scroll_now">
+		<div class="container">
+		  <div class="row">
+			<div class="col-lg-12">
+			  <h2><?php echo get_post_meta( 79, 'wpcf-philosophy-and-vision-title',true);?></h2>
+			  <p class="frst"> <?php echo get_post_meta( 79, 'wpcf-philosophy-and-vision-content',true);?>
+			  </p>
+			</div>
+		  </div>
+		  <div class="row catogry">
+			  <?php foreach( $philosophy_results as $philosophy_result ){
+			        $philosophy_featured = get_the_post_thumbnail_url( $philosophy_result->ID );?>
+					<div class="col-md-4">
+						  <div class="wdth">
+							<img src="<?php echo $philosophy_featured;?>" class="img-fluid" alt="<?php echo  $philosophy_result->post_title;?>">
+						  </div>
+
+			  			<h3><?php echo  $philosophy_result->post_title;?></h3>
+                        <?php $post_content = str_replace('[DO_GOOD_ACTIONS_COUNT]',get_post_meta( get_the_ID(),'wpcf-banner-counter3',true), $philosophy_result->post_content)?>
+			  			<p><?php echo  wp_trim_words(  $post_content, 30,'...');?></p>
+					</div>
+	          <?php }?>
+			
+			
+			
+
+		  </div>
+		</div>
+	  </section>
+<?php } ?>
+<!--philosophy section ends here-->
+
 			
 <!--reward section starts here-->
 			
