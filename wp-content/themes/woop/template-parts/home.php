@@ -80,6 +80,32 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
     </div>
   </section>
 
+
+<!--mobile-->
+<div class="mbl_bnr_ft">
+	
+
+	<div class="d-sm-none d-block">
+		<div class="boxes frstbx">
+        <h2 class="number counter1"><?php echo $women_signed_up;?></h2>
+        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title1',true);?></h6>
+      </div>
+      <div class="boxes scndbx">
+        <h2 class="number counter2_top"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter2',true);?></h2>
+        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title2',true);?></h6>
+      </div>
+      <div class="boxes thrdbx">
+        <h2 class="number counter3"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter3',true);?></h2>
+        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title3',true);?></h6>
+      </div>
+	</div>
+    
+    <div class="cntnt d-sm-none d-block">
+        <p><?php echo get_post_meta( get_the_ID(),'wpcf-banner-notice',true);?></p>
+      </div>
+</div>
+
+
 <!--marketing roi section starts here-->
 <section class="woop_en_roi home_woop">
      <div class="container">
@@ -278,30 +304,6 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
 
 
 <!--philosophy section starts here-->
-<!--mobile-->
-<div class="mbl_bnr_ft">
-	
-
-	<div class="d-sm-none d-block">
-		<div class="boxes frstbx">
-        <h2 class="number counter1"><?php echo $women_signed_up;?></h2>
-        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title1',true);?></h6>
-      </div>
-      <div class="boxes scndbx">
-        <h2 class="number counter2_top"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter2',true);?></h2>
-        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title2',true);?></h6>
-      </div>
-      <div class="boxes thrdbx">
-        <h2 class="number counter3"><?php echo get_post_meta( get_the_ID(),'wpcf-banner-counter3',true);?></h2>
-        <h6><?php echo get_post_meta( get_the_ID(),'wpcf-banner-title3',true);?></h6>
-      </div>
-	</div>
-    
-    <div class="cntnt d-sm-none d-block">
-        <p><?php echo get_post_meta( get_the_ID(),'wpcf-banner-notice',true);?></p>
-      </div>
-</div>
-
 <?php
 $philosophy_slug = 'our-philosophy';
 $philosophy_obj = get_post_type_object( $philosophy_slug );
