@@ -1,19 +1,20 @@
 <?php
-/**
- * Homepage Builder for the indexables.
- *
- * @package Yoast\YoastSEO\Builders
- */
 
 namespace Yoast\WP\SEO\Builders;
 
 use Yoast\WP\SEO\Helpers\Options_Helper;
 use Yoast\WP\SEO\Helpers\Url_Helper;
+use Yoast\WP\SEO\Models\Indexable;
 
 /**
+ * Homepage Builder for the indexables.
+ *
  * Formats the homepage meta to indexable format.
+ *
+ * @phpcs:disable Yoast.NamingConventions.ObjectNameDepth.MaxExceeded -- 4 words is fine.
  */
 class Indexable_Home_Page_Builder {
+
 	use Indexable_Social_Image_Trait;
 
 	/**
@@ -47,9 +48,9 @@ class Indexable_Home_Page_Builder {
 	/**
 	 * Formats the data.
 	 *
-	 * @param \Yoast\WP\SEO\Models\Indexable $indexable The indexable to format.
+	 * @param Indexable $indexable The indexable to format.
 	 *
-	 * @return \Yoast\WP\SEO\Models\Indexable The extended indexable.
+	 * @return Indexable The extended indexable.
 	 */
 	public function build( $indexable ) {
 		$indexable->object_type      = 'home-page';
@@ -64,10 +65,14 @@ class Indexable_Home_Page_Builder {
 
 		$indexable->is_robots_noindex = \get_option( 'blog_public' ) === '0';
 
-		$indexable->open_graph_title       = $this->options->get( 'og_frontpage_title' );
-		$indexable->open_graph_image       = $this->options->get( 'og_frontpage_image' );
-		$indexable->open_graph_image_id    = $this->options->get( 'og_frontpage_image_id' );
-		$indexable->open_graph_description = $this->options->get( 'og_frontpage_desc' );
+		$indexable->open_graph_title       = $this->options->get( 'open_graph_frontpage_title' );
+		$indexable->open_graph_image       = $this->options->get( 'open_graph_frontpage_image' );
+		$indexable->open_graph_image_id    = $this->options->get( 'open_graph_frontpage_image_id' );
+		$indexable->open_graph_description = $this->options->get( 'open_graph_frontpage_desc' );
+
+		// Reset the OG image source & meta.
+		$indexable->open_graph_image_source = null;
+		$indexable->open_graph_image_meta   = null;
 
 		// When the image or image id is set.
 		if ( $indexable->open_graph_image || $indexable->open_graph_image_id ) {

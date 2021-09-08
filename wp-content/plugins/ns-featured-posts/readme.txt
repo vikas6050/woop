@@ -4,8 +4,8 @@ Donate link: https://www.nilambar.net/2014/07/ns-featured-posts-wordpress-plugin
 Tags: post, custom post type, custom, posts, meta, plugin, featured, featured-post, page
 Requires at least: 5.0
 Requires PHP: 5.6.20
-Tested up to: 5.4
-Stable tag: 1.4.2
+Tested up to: 5.8
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,9 +49,9 @@ This will fetch the list of post which are checked as Featured.
 
 == Frequently Asked Questions ==
 
-= There is something cool you could add... =
+= Does this support custom post types? =
 
-Nice, make a post on the [Support Forum](https://wordpress.org/support/plugin/ns-featured-posts "NS Featured Posts Support") and let us know. We are always looking for ways to improve our plugins.
+Yes. It supports custom post types also. From Settings page( Settings -> NS Featured Posts), you can enable/disable custom post types for featured.
 
 == Screenshots ==
 
@@ -60,7 +60,20 @@ Nice, make a post on the [Support Forum](https://wordpress.org/support/plugin/ns
 
 == Changelog ==
 
-= 1.4.2 =
+= 2.0.3 - 20 Jul 2021 =
+* Compatibility with WP 5.8
+* Minor bug fixes
+
+= 2.0.2 =
+* Minor bug fixes
+
+= 2.0.1 =
+* Fix bug of cpt
+
+= 2.0.0 =
+* Major code refactoring
+* Add radio mode
+* Add max posts option
 * Minor bug fixes
 
 = 1.4.1 =

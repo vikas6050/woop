@@ -3,7 +3,7 @@
  * Plugin Name: NS Featured Posts
  * Plugin URI: https://www.nilambar.net/2014/07/ns-featured-posts-wordpress-plugin.html
  * Description: Plugin to make your posts, pages and custom post types Featured
- * Version: 1.4.2
+ * Version: 2.0.3
  * Author: Nilambar Sharma
  * Author URI: https://www.nilambar.net
  * Text Domain: ns-featured-posts
@@ -18,13 +18,21 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-require_once( plugin_dir_path( __FILE__ ) . 'class-ns-featured-posts.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'class-ns-featured-posts-admin.php' );
+define( 'NS_FEATURED_POSTS_BASENAME', basename( dirname( __FILE__ ) ) );
+define( 'NS_FEATURED_POSTS_DIR', rtrim( plugin_dir_path( __FILE__ ), '/' ) );
+define( 'NS_FEATURED_POSTS_URL', rtrim( plugin_dir_url( __FILE__ ), '/' ) );
 
-/*
- * Register hooks that are fired when the plugin is activated or deactivated.
- * When the plugin is deleted, the uninstall.php file is loaded.
- */
+// Init autoload.
+require_once NS_FEATURED_POSTS_DIR . '/vendor/autoload.php';
+
+// Load classes.
+require_once NS_FEATURED_POSTS_DIR . '/includes/classes/class-ns-featured-posts.php';
+require_once NS_FEATURED_POSTS_DIR . '/includes/classes/class-ns-featured-posts-admin.php';
+
+// Load widget.
+require_once NS_FEATURED_POSTS_DIR . '/includes/widgets/nsfp-featured-post-widget.php';
+
+// Register hooks that are fired when the plugin is activated or deactivated.
 register_activation_hook( __FILE__, array( 'NS_Featured_Posts', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'NS_Featured_Posts', 'deactivate' ) );
 

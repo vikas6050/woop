@@ -5,7 +5,8 @@ Plugin Name: UpdraftPlus - Backup/Restore
 Plugin URI: https://updraftplus.com
 Description: Backup and restore: take backups locally, or backup to Amazon S3, Dropbox, Google Drive, Rackspace, (S)FTP, WebDAV & email, on automatic schedules.
 Author: UpdraftPlus.Com, DavidAnderson
-Version: 1.16.25
+Version: 1.16.61
+Update URI: https://wordpress.org/plugins/updraftplus/
 Donate link: https://david.dw-perspective.org.uk/donate
 License: GPLv3 or later
 Text Domain: updraftplus
@@ -15,7 +16,7 @@ Author URI: https://updraftplus.com
 // @codingStandardsIgnoreEnd
 
 /*
-Portions copyright 2011-19 David Anderson
+Portions copyright 2011-21 David Anderson
 Portions copyright 2010 Paul Kehrer
 Other portions copyright as indicated by authors in the relevant files
 
@@ -57,7 +58,7 @@ if (!defined('UPDRAFTPLUS_WARN_DB_ROWS')) define('UPDRAFTPLUS_WARN_DB_ROWS', 150
 if (!defined('UPDRAFTPLUS_SPLIT_MIN')) define('UPDRAFTPLUS_SPLIT_MIN', 25);
 
 // The maximum number of files to batch at one time when writing to the backup archive. You'd only be likely to want to raise (not lower) this.
-if (!defined('UPDRAFTPLUS_MAXBATCHFILES')) define('UPDRAFTPLUS_MAXBATCHFILES', 500);
+if (!defined('UPDRAFTPLUS_MAXBATCHFILES')) define('UPDRAFTPLUS_MAXBATCHFILES', 1000);
 
 // If any individual email attachment is greater than this, then a warning is given (and then removed if the email actually succeeds)
 if (!defined('UPDRAFTPLUS_WARN_EMAIL_SIZE')) define('UPDRAFTPLUS_WARN_EMAIL_SIZE', 20*1048576);
@@ -187,7 +188,7 @@ if (!function_exists('gzopen') && function_exists('gzopen64')) {
 }
 
 /**
- * For finding mysqldump. Added to include Windows locations
+ * For finding mysqldump. Added to include Windows locations.
  */
 function updraftplus_build_mysqldump_list() {
 	if ('win' == strtolower(substr(PHP_OS, 0, 3)) && function_exists('glob')) {

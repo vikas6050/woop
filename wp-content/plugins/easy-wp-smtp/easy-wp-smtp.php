@@ -1,7 +1,9 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 /*
 Plugin Name: Easy WP SMTP
-Version: 1.3.9.3
+Version: 1.4.7
 Plugin URI: https://wp-ecommerce.net/easy-wordpress-smtp-send-emails-from-your-wordpress-site-using-a-smtp-server-2197
 Author: wpecommerce, alexanderfoxc
 Author URI: https://wp-ecommerce.net/
@@ -16,7 +18,8 @@ class EasyWPSMTP {
 
 	public $opts;
 	public $plugin_file;
-	protected static $instance = null;
+	protected static $instance   = null;
+	public static $reset_log_str = "Easy WP SMTP debug log file\r\n\r\n";
 
 	public function __construct() {
 		$this->opts        = get_option( 'swpsmtp_options' );
@@ -29,9 +32,14 @@ class EasyWPSMTP {
 		add_action( 'phpmailer_init', array( $this, 'init_smtp' ), 999 );
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
+		if ( ! empty( $this->opts['smtp_settings']['enable_debug'] ) ) {
+			add_action( 'wp_mail_failed', array( $this, 'wp_mail_failed' ) );
+		}
+
 		if ( is_admin() && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
 			require_once 'class-easywpsmtp-admin.php';
 			register_activation_hook( __FILE__, array( $this, 'activate' ) );
+			register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
 			register_uninstall_hook( __FILE__, 'swpsmtp_uninstall' );
 			add_filter( 'plugin_action_links', array( $this, 'plugin_action_links' ), 10, 2 );
 			add_filter( 'plugin_row_meta', array( $this, 'register_plugin_links' ), 10, 2 );
@@ -56,8 +64,26 @@ class EasyWPSMTP {
 					'To: ' . $args['to'] . '; Subject: ' . $args['subject'] . "\r\n" .
 					"------------------------------------------------------------------------------------------------------\r\n\r\n"
 			);
+			return $args;
 		}
+
+		if ( ! empty( $this->opts['smtp_settings']['enable_debug'] ) ) {
+			$line = sprintf(
+				'Headers: %s, To: %s, Subject: %s',
+				! empty( $args['headers'] && is_array( $args['headers'] ) ) ? implode( ' | ', $args['headers'] ) : '',
+				! empty( $args['to'] ) ? $args['to'] : '',
+				! empty( $args['subject'] ) ? $args['subject'] : ''
+			);
+			$this->log( $line . "\r\n" );
+		}
+
 		return $args;
+	}
+
+	public function wp_mail_failed( $wp_error ) {
+		if ( ! empty( $wp_error->errors ) && ! empty( $wp_error->errors['wp_mail_failed'] ) && is_array( $wp_error->errors['wp_mail_failed'] ) ) {
+			$this->log( '*** ' . implode( ' | ', $wp_error->errors['wp_mail_failed'] ) . " ***\r\n" );
+		}
 	}
 
 	public function init_smtp( &$phpmailer ) {
@@ -116,6 +142,15 @@ class EasyWPSMTP {
 				$phpmailer->AddReplyTo( $this->opts['reply_to_email'], $from_name );
 			}
 		}
+
+		if ( ! empty( $this->opts['bcc_email'] ) ) {
+				$bcc_emails = explode( ',', $this->opts['bcc_email'] );
+			foreach ( $bcc_emails as $bcc_email ) {
+						$bcc_email = trim( $bcc_email );
+						$phpmailer->AddBcc( $bcc_email );
+			}
+		}
+
 		// let's see if we have email ignore list populated
 		if ( isset( $this->opts['email_ignore_list'] ) && ! empty( $this->opts['email_ignore_list'] ) ) {
 			$emails_arr  = explode( ',', $this->opts['email_ignore_list'] );
@@ -167,12 +202,6 @@ class EasyWPSMTP {
 			);
 		}
 
-		if ( isset( $this->opts['smtp_settings']['enable_debug'] ) && $this->opts['smtp_settings']['enable_debug'] ) {
-			$phpmailer->Debugoutput = function ( $str, $level ) {
-				$this->log( $str );
-			};
-			$phpmailer->SMTPDebug   = 1;
-		}
 		//set reasonable timeout
 		$phpmailer->Timeout = 10;
 	}
@@ -183,8 +212,17 @@ class EasyWPSMTP {
 			return false;
 		}
 
-		require_once ABSPATH . WPINC . '/class-phpmailer.php';
-		$mail = new PHPMailer( true );
+		global $wp_version;
+
+		if ( version_compare( $wp_version, '5.4.99' ) > 0 ) {
+			require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
+			require_once ABSPATH . WPINC . '/PHPMailer/SMTP.php';
+			require_once ABSPATH . WPINC . '/PHPMailer/Exception.php';
+			$mail = new PHPMailer( true );
+		} else {
+			require_once ABSPATH . WPINC . '/class-phpmailer.php';
+			$mail = new \PHPMailer( true );
+		}
 
 		try {
 
@@ -229,9 +267,21 @@ class EasyWPSMTP {
 			/* Set the other options */
 			$mail->Host = $this->opts['smtp_settings']['host'];
 			$mail->Port = $this->opts['smtp_settings']['port'];
+
+			//Add reply-to if set in settings.
 			if ( ! empty( $this->opts['reply_to_email'] ) ) {
 				$mail->AddReplyTo( $this->opts['reply_to_email'], $from_name );
 			}
+
+			//Add BCC if set in settings.
+			if ( ! empty( $this->opts['bcc_email'] ) ) {
+				$bcc_emails = explode( ',', $this->opts['bcc_email'] );
+				foreach ( $bcc_emails as $bcc_email ) {
+					$bcc_email = trim( $bcc_email );
+					$mail->AddBcc( $bcc_email );
+				}
+			}
+
 			$mail->SetFrom( $from_email, $from_name );
 			//This should set Return-Path header for servers that are not properly handling it, but needs testing first
 			//$mail->Sender		 = $mail->From;
@@ -252,7 +302,9 @@ class EasyWPSMTP {
 			$mail->Send();
 			$mail->ClearAddresses();
 			$mail->ClearAllRecipients();
-		} catch ( Exception $e ) {
+		} catch ( \Exception $e ) {
+			$ret['error'] = $mail->ErrorInfo;
+		} catch ( \Throwable $e ) {
 			$ret['error'] = $mail->ErrorInfo;
 		}
 
@@ -278,7 +330,7 @@ class EasyWPSMTP {
 					}
 
 					if ( ! file_exists( plugin_dir_path( __FILE__ ) . $log_file_name ) ) {
-						if ( $this->log( "Easy WP SMTP debug log file\r\n\r\n" ) === false ) {
+						if ( $this->log( self::$reset_log_str ) === false ) {
 							wp_die( esc_html( sprintf( 'Can\'t write to log file. Check if plugin directory (%s) is writeable.', plugin_dir_path( __FILE__ ) ) ) );
 						};
 					}
@@ -392,12 +444,18 @@ class EasyWPSMTP {
 		}
 	}
 
+	public function get_log_file_path() {
+		$log_file_name = 'logs' . DIRECTORY_SEPARATOR . '.' . uniqid( '', true ) . '.txt';
+		$log_file_name = apply_filters( 'swpsmtp_log_file_path_override', $log_file_name );
+		return $log_file_name;
+	}
+
 	public function clear_log() {
 		if ( ! check_ajax_referer( 'easy-wp-smtp-clear-log', 'nonce', false ) ) {
 			echo esc_html( __( 'Nonce check failed.', 'easy-wp-smtp' ) );
 			exit;
 		};
-		if ( $this->log( "Easy WP SMTP debug log file\r\n\r\n", true ) !== false ) {
+		if ( $this->log( self::$reset_log_str, true ) !== false ) {
 			echo '1';
 		} else {
 			echo esc_html( __( "Can't clear log - file is not writeable.", 'easy-wp-smtp' ) );
@@ -406,16 +464,28 @@ class EasyWPSMTP {
 	}
 
 	public function log( $str, $overwrite = false ) {
-		if ( isset( $this->opts['smtp_settings']['log_file_name'] ) ) {
-			$log_file_name = $this->opts['smtp_settings']['log_file_name'];
-		} else {
-			// let's generate log file name
-			$log_file_name                                = uniqid() . '_debug_log.txt';
-			$this->opts['smtp_settings']['log_file_name'] = $log_file_name;
-			update_option( 'swpsmtp_options', $this->opts );
-			file_put_contents( plugin_dir_path( __FILE__ ) . $log_file_name, "Easy WP SMTP debug log file\r\n\r\n" ); //phpcs:ignore
+		try {
+			$log_file_name = '';
+			if ( isset( $this->opts['smtp_settings']['log_file_name'] ) ) {
+				$log_file_name = $this->opts['smtp_settings']['log_file_name'];
+			}
+			if ( empty( $log_file_name ) || $overwrite ) {
+				if ( ! empty( $log_file_name ) && file_exists( plugin_dir_path( __FILE__ ) . $log_file_name ) ) {
+					unlink( plugin_dir_path( __FILE__ ) . $log_file_name );
+				}
+				$log_file_name = $this->get_log_file_path();
+
+				$this->opts['smtp_settings']['log_file_name'] = $log_file_name;
+				update_option( 'swpsmtp_options', $this->opts );
+				file_put_contents( plugin_dir_path( __FILE__ ) . $log_file_name, self::$reset_log_str ); //phpcs:ignore
+			}
+                        //Timestamp the log output
+                        $str = '[' . date( 'm/d/Y g:i:s A' ) . '] - ' . $str;
+                        //Write to the log file
+                        return ( file_put_contents( plugin_dir_path( __FILE__ ) . $log_file_name, $str, ( ! $overwrite ? FILE_APPEND : 0 ) ) ); //phpcs:ignore
+		} catch ( \Exception $e ) {
+			return false;
 		}
-		return ( file_put_contents( plugin_dir_path( __FILE__ ) . $log_file_name, $str, ( ! $overwrite ? FILE_APPEND : 0 ) ) ); //phpcs:ignore
 	}
 
 	public function plugin_action_links( $links, $file ) {
@@ -557,6 +627,8 @@ class EasyWPSMTP {
 			$this->opts = $swpsmtp_options_default;
 		}
 		$this->opts = array_merge( $swpsmtp_options_default, $this->opts );
+		// reset log file
+		$this->log( self::$reset_log_str, true );
 		update_option( 'swpsmtp_options', $this->opts, 'yes' );
 		//add current domain to allowed domains list
 		if ( ! isset( $this->opts['allowed_domains'] ) ) {
@@ -585,6 +657,11 @@ class EasyWPSMTP {
 		}
 	}
 
+	public function deactivate() {
+		// reset log file
+		$this->log( self::$reset_log_str, true );
+	}
+
 	public function self_destruct_handler() {
 		$err_msg = __( 'Please refresh the page and try again.', 'easy-wp-smtp' );
 		$trans   = get_transient( 'easy_wp_smtp_sd_code' );
@@ -597,6 +674,7 @@ class EasyWPSMTP {
 			echo esc_html( $err_msg );
 			exit;
 		}
+		$this->log( self::$reset_log_str, true );
 		delete_site_option( 'swpsmtp_options' );
 		delete_option( 'swpsmtp_options' );
 		delete_site_option( 'smtp_test_mail' );
