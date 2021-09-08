@@ -2,15 +2,19 @@
 /*
 Plugin Name: Duplicate Page and Post
 Plugin URI: https://wordpress.org/plugins/duplicate-wp-page-post/
-Description: This plugin quickly creates a clone of page or post and supports Gutenberg.
+Description: Quickly clone a page, post or custom post and supports Gutenberg.
 Author: Arjun Thakur
 Author URI: https://profiles.wordpress.org/arjunthakur#content-plugins
-Version: 2.5.8
+Version: 2.6.5
 License: GPLv2 or later
 Text Domain: dpp_wpp_page
 */
 if ( ! defined( 'ABSPATH' ) ) exit;
-if (!defined("dpp_wpp_page_directory-dn")) define("dpp_wpp_page_directory-dn", plugin_basename(dirname(__FILE__)));
+if ( ! defined( 'DPP_BASE_NAME' ) ) {
+    
+    define( 'DPP_BASE_NAME', plugin_basename( __FILE__ ) );
+}
+
 if(!class_exists('dcc_dpp_wpp_page')):
   class dpp_wpp_page
   {
@@ -21,7 +25,7 @@ if(!class_exists('dcc_dpp_wpp_page')):
         $opt = get_option('dpp_wpp_page_options');
         register_activation_hook(__FILE__, array(&$this, 'dpp_wpp_page_install'));
         add_action('admin_menu', array(&$this, 'dpp_page_options_page'));
-        add_filter( 'plugin_action_links', array(&$this, 'dpp_page_plugin_action_links'), 10, 2 );
+        add_filter( 'plugin_action_links', array(&$this, 'dpp_settings_link'), 10, 2 );
         add_action( 'admin_action_dt_dpp_post_as_draft', array(&$this,'dt_dpp_post_as_draft') ); 
         add_filter( 'post_row_actions', array(&$this,'dt_dpp_post_link'), 10, 2);
         add_filter( 'page_row_actions', array(&$this,'dt_dpp_post_link'), 10, 2);
@@ -50,10 +54,6 @@ if(!class_exists('dcc_dpp_wpp_page')):
            } 
     }
     
-    /* Plugin Action Links(Dashboard) */
-    public function dpp_page_plugin_action_links($links, $file){
-        return $links;
-    }
 
     /* Page Title and Dashboard Menu (Setting options) */
     public function dpp_page_options_page(){
@@ -89,14 +89,10 @@ if(!class_exists('dcc_dpp_wpp_page')):
               $post_status = !empty($opt['dpp_post_status']) ? $opt['dpp_post_status'] : 'draft';
               $redirectit = !empty($opt['dpp_post_redirect']) ? $opt['dpp_post_redirect'] : 'to_list';
 
-                //if (! ( isset( $get_copy ) || isset( $post_copy ) || ( isset($request_copy) && 'dt_dpp_post_as_draft' == $request_copy ) ) ) {
                 if (!(isset($_GET['post']) || isset($_POST['post']) || (isset($_REQUEST['action']) && 'dt_dpp_post_as_draft' == $_REQUEST['action']))) {
                 wp_die('No post!');
                 }
                 $returnpage = '';
-   
-                /* Get post id */
-                //$post_id = (isset($get_copy) ? $get_copy : $post_copy );
 
                 $post = get_post( $post_id );
                 
@@ -160,7 +156,8 @@ if(!class_exists('dcc_dpp_wpp_page')):
     
 
     /*Add link to action*/
-    public function dt_dpp_post_link( $actions, $post ) {
+    public function dt_dpp_post_link( $actions, $post ) 
+    {
       $opt = get_option('dpp_wpp_page_options');
       $link_title = !empty($opt['dpp_post_link_title']) ? $opt['dpp_post_link_title'] : 'Duplicate';    
       $opt = get_option('dpp_wpp_page_options');
@@ -172,7 +169,8 @@ if(!class_exists('dcc_dpp_wpp_page')):
       }
     
     /*Add link to edit Post*/
-    public function dpp_wpp_page_custom_button(){
+    public function dpp_wpp_page_custom_button()
+    {
        $opt = get_option('dpp_wpp_page_options');
        $link_title = !empty($opt['dpp_post_link_title']) ? $opt['dpp_post_link_title'] : 'Duplicate';
        global $post;
@@ -202,7 +200,7 @@ if(!class_exists('dcc_dpp_wpp_page')):
                 var dtnonce = "<?php echo wp_create_nonce( 'dt-duplicate-page-'.$post->ID );?>"; 
                 var dpp_posttitle = "Duplicate this as <?php echo $post_status; ?>";
                 var dpp_duplicatelink = '<div class="link_gutenberg">';
-				    dpp_duplicatelink += '<a href="admin.php?action=dt_dpp_post_as_draft&amp;post='+dpp_postid'&amp;nonce='+dtnonce+'" title="'+dpp_posttitle+'">Duplicate</a>';
+				    dpp_duplicatelink += '<a href="admin.php?action=dt_dpp_post_as_draft&amp;post='+dpp_postid+'&amp;nonce='+dtnonce+'" title="'+dpp_posttitle+'">Duplicate</a>';
 				    dpp_duplicatelink += '</div>';
                 jQuery('.edit-post-post-status').append(dpp_duplicatelink);
 				});</script>
@@ -214,7 +212,7 @@ if(!class_exists('dcc_dpp_wpp_page')):
     
     /*Click here to clone Admin Bar*/
     public function dpp_wpp_page_admin_bar_link()
-      {
+    {
         global $wp_admin_bar;
         global $post;
         $opt = get_option('dpp_wpp_page_options');
@@ -233,24 +231,28 @@ if(!class_exists('dcc_dpp_wpp_page')):
       }
     }
 
+      
     /*WP Url Redirect*/	
     static function dp_redirect($url)
     {
      echo '<script>window.location.href="'.$url.'"</script>';
     }
-    }
-    new dpp_wpp_page;
-
+      
     /*plugin settings page link*/
-    add_filter('plugin_action_links_'.plugin_basename(__FILE__), 'dpp_settings_link');
-    function dpp_settings_link( $links ) {
+    function dpp_settings_link( $links, $file ) 
+    {
+       if ($file == DPP_BASE_NAME) {
+
         $links[] = '<a href="' .
             admin_url( 'options-general.php?page=dpp_page_settings' ) .
             '">' . __('Settings') . '</a>';
-        return $links;
+       }
+       return $links;
+       
     }
+      
+    }
+    new dpp_wpp_page();
 
 endif;
-
-
 ?>

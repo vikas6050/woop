@@ -2,13 +2,18 @@
 
 class EasyWPSMTP_Admin {
 
-	private $sd_code;
-
 	public function __construct() {
-		$this->sd_code = md5( uniqid( 'swpsmtp', true ) );
-		set_transient( 'easy_wp_smtp_sd_code', $this->sd_code, 12 * 60 * 60 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+	}
+
+	public function remove_conflicting_scripts() {
+		$html = ob_get_clean();
+		if ( defined( 'CLICKY_PLUGIN_DIR_URL' ) ) {
+			$expr = '/^(.*)' . preg_quote( CLICKY_PLUGIN_DIR_URL, '/' ) . '(.*)$/m';
+			$html = preg_replace( $expr, '', $html );
+		}
+		echo $html;
 	}
 
 	public function admin_enqueue_scripts( $hook ) {
@@ -16,6 +21,11 @@ class EasyWPSMTP_Admin {
 		if ( 'settings_page_swpsmtp_settings' !== $hook ) {
 			return;
 		}
+
+		//generate secret code for self-destruct function
+		$sd_code = md5( uniqid( 'swpsmtp', true ) );
+		set_transient( 'easy_wp_smtp_sd_code', $sd_code, 12 * 60 * 60 );
+
 		$core           = EasyWPSMTP::get_instance();
 		$plugin_data    = get_file_data( $core->plugin_file, array( 'Version' => 'Version' ), false );
 		$plugin_version = $plugin_data['Version'];
@@ -23,7 +33,7 @@ class EasyWPSMTP_Admin {
 		wp_register_script( 'swpsmtp_admin_js', plugins_url( 'js/script.js', __FILE__ ), array(), $plugin_version, true );
 		$params = array(
 			'sd_redir_url'    => get_admin_url(),
-			'sd_code'         => $this->sd_code,
+			'sd_code'         => $sd_code,
 			'clear_log_nonce' => wp_create_nonce( 'easy-wp-smtp-clear-log' ),
 			'str'             => array(
 				'clear_log'               => __( 'Are you sure want to clear log?', 'easy-wp-smtp' ),
@@ -36,6 +46,13 @@ class EasyWPSMTP_Admin {
 		);
 		wp_localize_script( 'swpsmtp_admin_js', 'easywpsmtp', $params );
 		wp_enqueue_script( 'swpsmtp_admin_js' );
+
+		// `Clicky by Yoast` plugin's admin-side scripts should be removed from settings page to prevent JS errors
+		// https://wordpress.org/support/topic/plugin-causing-conflicts-on-admin-side/
+		if ( class_exists( 'Clicky_Admin' ) ) {
+			ob_start();
+			add_action( 'admin_print_scripts', array( $this, 'remove_conflicting_scripts' ), 10000 );
+		}
 	}
 
 	public function admin_menu() {
@@ -108,6 +125,9 @@ function swpsmtp_settings() {
 		}
 		if ( isset( $_POST['swpsmtp_reply_to_email'] ) ) {
 			$swpsmtp_options['reply_to_email'] = sanitize_email( $_POST['swpsmtp_reply_to_email'] );
+		}
+		if ( isset( $_POST['swpsmtp_bcc_email'] ) ) {
+			$swpsmtp_options['bcc_email'] = sanitize_text_field( $_POST['swpsmtp_bcc_email'] );//Can contain comma seperated addresses.
 		}
 
 		if ( isset( $_POST['swpsmtp_email_ignore_list'] ) ) {
@@ -249,6 +269,14 @@ function swpsmtp_settings() {
 										<p>
 									</td>
 								</tr>
+								<tr valign="top">
+									<th scope="row"><?php esc_html_e( 'BCC Email Address', 'easy-wp-smtp' ); ?></th>
+									<td>
+										<input id="swpsmtp_bcc_email" type="text" name="swpsmtp_bcc_email" value="<?php echo isset( $swpsmtp_options['bcc_email'] ) ? esc_attr( $swpsmtp_options['bcc_email'] ) : ''; ?>" /><br />
+										<p class="description"><?php esc_html_e( "Optional. This email address will be used in the 'BCC' field of the outgoing emails. Use this option carefully since all your outgoing emails from this site will add this address to the BCC field. You can also enter multiple email addresses (comma separated).", 'easy-wp-smtp' ); ?></p>
+									</td>
+								</tr>
+
 								<tr class="ad_opt swpsmtp_smtp_options">
 									<th><?php esc_html_e( 'SMTP Host', 'easy-wp-smtp' ); ?></th>
 									<td>
@@ -353,7 +381,7 @@ function swpsmtp_settings() {
 										<p>
 											<label><input type="checkbox" id="swpsmtp_block_all_emails" name="swpsmtp_block_all_emails" value="1" <?php echo ( isset( $swpsmtp_options['block_all_emails'] ) && ( $swpsmtp_options['block_all_emails'] ) ) ? ' checked' : ''; ?><?php echo ( isset( $swpsmtp_options['enable_domain_check'] ) && ( $swpsmtp_options['enable_domain_check'] ) ) ? '' : ' disabled'; ?> /> <?php esc_html_e( 'Block all emails', 'easy-wp-smtp' ); ?></label>
 										</p>
-										<p class="description"><?php esc_html_e( 'When enabled, plugin attempts to block ALL emails from being sent out if domain mismtach.', 'easy-wp-smtp' ); ?></p>
+										<p class="description"><?php esc_html_e( 'When enabled, plugin attempts to block ALL emails from being sent out if domain mismatch.', 'easy-wp-smtp' ); ?></p>
 									</td>
 								</tr>
 								<tr valign="top">
@@ -378,7 +406,10 @@ function swpsmtp_settings() {
 									<th scope="row"><?php esc_html_e( 'Enable Debug Log', 'easy-wp-smtp' ); ?></th>
 									<td>
 										<input id="swpsmtp_enable_debug" type="checkbox" name="swpsmtp_enable_debug" value="1" <?php echo ( isset( $swpsmtp_options['smtp_settings']['enable_debug'] ) && ( $swpsmtp_options['smtp_settings']['enable_debug'] ) ) ? 'checked' : ''; ?> />
-										<p class="description"><?php esc_html_e( 'Check this box to enable mail debug log', 'easy-wp-smtp' ); ?></p>
+										<p class="description"><?php esc_html_e( 'Check this box to enable mail debug log', 'easy-wp-smtp' ); ?>
+											<br/>
+											<b><?php echo esc_html( _x( 'Note:', '"Note" as in "Note: keep this in mind"', 'easy-wp-smtp' ) ); ?></b> <?php esc_html_e( 'debug log is reset when the plugin is activated, deactivated or updated.', 'easy-wp-smtp' ); ?>
+										</p>
 										<a href="<?php echo esc_attr( admin_url() ); ?>?swpsmtp_action=view_log" target="_blank"><?php esc_html_e( 'View Log', 'easy-wp-smtp' ); ?></a> | <a style="color: red;" id="swpsmtp_clear_log_btn" href="#0"><?php esc_html_e( 'Clear Log', 'easy-wp-smtp' ); ?></a>
 									</td>
 								</tr>

@@ -1,9 +1,4 @@
 <?php
-/**
- * Author Builder for the indexables.
- *
- * @package Yoast\YoastSEO\Builders
- */
 
 namespace Yoast\WP\SEO\Builders;
 
@@ -11,9 +6,12 @@ use Yoast\WP\SEO\Helpers\Author_Archive_Helper;
 use Yoast\WP\SEO\Models\Indexable;
 
 /**
+ * Author Builder for the indexables.
+ *
  * Formats the author meta to indexable format.
  */
 class Indexable_Author_Builder {
+
 	use Indexable_Social_Image_Trait;
 
 	/**
@@ -92,7 +90,7 @@ class Indexable_Author_Builder {
 	 * @param int    $user_id The user to retrieve the indexable for.
 	 * @param string $key     The meta entry to retrieve.
 	 *
-	 * @return string The value of the meta field.
+	 * @return string|null The value of the meta field.
 	 */
 	protected function get_author_meta( $user_id, $key ) {
 		$value = \get_the_author_meta( $key, $user_id );
