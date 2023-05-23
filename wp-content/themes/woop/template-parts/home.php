@@ -63,8 +63,11 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
 	
       
       <div class="link">
-        <a class="primary_btn" href="#" data-toggle="modal" data-target="#discoverModal"> <span><img
-              src="<?php echo get_site_url();?>/wp-content/uploads/2020/04/Shape.svg" alt=""></span> DISCOVER HOW</a>
+        <a class="primary_btn" href="https://s.pointerpro.com/yptkxmgx"><span>
+        	<img src="<?php echo get_site_url();?>/wp-content/uploads/2020/04/Shape.svg" alt="">
+        </span> Join the Movement</a>
+        <!-- <a class="primary_btn" href="#" data-toggle="modal" data-target="#discoverModal"> <span><img
+              src="<?php echo get_site_url();?>/wp-content/uploads/2020/04/Shape.svg" alt=""></span> DISCOVER HOW</a> -->
         <!-- <a class="fb_btn" href="#"> <span><img src="images/facebook.svg" alt=""></span> Join the movement</a> -->
       </div>
 
