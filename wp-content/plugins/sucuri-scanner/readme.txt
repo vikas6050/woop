@@ -1,10 +1,10 @@
 === Sucuri Security - Auditing, Malware Scanner and Security Hardening ===
-Contributors: dd@sucuri.net
+Contributors: wordpress@sucuri.net
 Donate Link: https://sucuri.net/
 Tags: malware, security, firewall, scan, spam, virus, sucuri, protection, blocklist, detection, hardening, file integrity
 Requires at least: 3.6
-Tested up to: 5.8
-Stable tag: 1.8.28
+Tested up to: 6.2
+Stable tag: 1.8.39
 
 The Sucuri WordPress Security plugin is a security toolset for security integrity monitoring, malware detection and security hardening.
 
@@ -12,7 +12,8 @@ The Sucuri WordPress Security plugin is a security toolset for security integrit
 
 Sucuri Inc. is a globally recognized authority in all matters related to website security, with specialization in WordPress Security.
 
-The Sucuri Security WordPress plugin is free to all WordPress users. It is a security suite meant to complement your existing security posture. It offers its users a set of security features for their website, each designed to have a positive effect on their security posture:
+The Sucuri Security WordPress plugin is free to all WordPress users. It is a security suite meant to complement your existing security posture. Currently the ownership of this plugin was transferred to GoDaddy.
+It offers its users a set of security features for their website, each designed to have a positive effect on their security posture:
 
 * Security Activity Auditing
 * File Integrity Monitoring
@@ -185,10 +186,56 @@ We take your privacy seriously. For free plugin users without an API key, no inf
 
 == Upgrade Notice ==
 
+= 1.8.37 =
+This version removes the API communication service dependency on https://wordpress.sucuri.net/api/, because this service has been discontinued until further notice. Users who have their custom APIs to use in place of https://wordpress.sucuri.net/api/ can still use the API communication service by adding the API endpoint as SUCURISCAN_API_URL on the wp-config.php file.
+
 = 1.8.19 =
 This version adds an option to refresh the malware scan results on demand, as well as several small bug fixes and improvements.
 
+== Contributors & Maintenance Notice ==
+
+= 1.8.30 =
+Daniel is no longer maintaining the Sucuri plugin at GoDaddy. We have transferred it to a dedicated team to maintain and improve it.
+
 == Changelog ==
+= 1.8.39 =
+* Fixed API service messaging
+
+= 1.8.38 =
+* Fixed API service handling when the SUCURISCAN_API_URL config value is not defined
+* Fixed API service UI messaging
+
+= 1.8.37 =
+* Fixed plugin image assets and screenshots to match new branding
+* Fixed password reset email link protocol
+* Fixed remote fonts usage
+* Removed wordpress.sucuri.net API dependency
+* Updated screenshots
+
+= 1.8.36 =
+* Changed Branding fonts, colors and images to match the current Sucuri brand
+
+= 1.8.35 =
+* Fixed "Early referer checks on admin hooks"
+
+= 1.8.34 =
+* Added referer check on admin hooks
+
+= 1.8.33 = 
+* Fixed "Added option to clear cache by path"
+
+= 1.8.32 = 
+* Fixed "Empty wp-config file after automatic secret key updates"
+
+= 1.8.31 =
+* Fixed "Path cannot be empty" error
+
+= 1.8.30 =
+* Bump version
+
+= 1.8.29 =
+* Changed ownership
+
 = 1.8.28 =
 * Silence fopen warning
 

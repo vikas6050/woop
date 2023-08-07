@@ -3,7 +3,7 @@
  * Plugin Name: Easy Newsletter Signups
  * Plugin URI: https://wordpress.org/plugins/easy-newsletter-signups
  * Description: Easy Newsletter Signups is easy to use and light weight newsletter plugin. it allow you to collect subscribers by simple put a newsletter signup or email subscribe form onto your WordPress site.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: AlphaBPO
  * Author URI: http://www.alphabpo.com
  * Text Domain: wpens
@@ -58,10 +58,10 @@ if ( !defined( 'ABSPATH' ) ) exit;
  * Basic plugin definitions 
  * 
  * @package Easy Newsletter Signups
- * @since 1.0.0
+ * @since 1.0.4
  */
 if( !defined( 'WPENS_VERSION' ) ) {
-	define( 'WPENS_VERSION', '1.0.3' ); // plugin version
+	define( 'WPENS_VERSION', '1.0.4' ); // plugin version
 }
 if( !defined( 'WPENS_PLUGIN_DIR' ) ) {
 	define( 'WPENS_PLUGIN_DIR', dirname( __FILE__ ) ); // plugin dir
@@ -196,7 +196,7 @@ function wpens_add_action_links( $links ) {
  * Initialize all global variables
  * 
  * @package Easy Newsletter Signups
- * @since 1.0.0
+ * @since 1.0.4
  */
 
 global $wpens_scripts,$wpens_admin,$wpens_newsletter;

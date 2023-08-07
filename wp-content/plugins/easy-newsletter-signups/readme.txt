@@ -2,10 +2,10 @@
 Contributors: alphabposervice
 Tags: Easy Newsletter Signups, Subscription, newsletter subscribe, newsletter signup, email subscribe, email capture, newsletter widget, email newsletter widget, newsletter plugin
 Requires at least: 4.8
-Tested up to: 5.2
-Stable tag: 1.0.3
+Tested up to: 6.0
+Stable tag: 1.0.4
 Author: Alpha BPO
-Version: 1.0.3
+Version: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,10 @@ A. Contact us at: [alphabposervice@gmail.com](mailto:alphabposervice@gmail.com)
 6. Subscribers list
 
 == Changelog == 
+
+= V1.0.4 - 26 Mar, 2022 =
+* Library update and test with latest WordPress
+
 = V1.0.3 - 26 Feb, 2019 =
 * Security fix
 

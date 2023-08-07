@@ -1,0 +1,334 @@
+0000.005 (0) Opened log file at time: Mon, 07 Aug 2023 03:46:01 +0000 on http://localhost/woop.world
+0000.017 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.23.7 WP: 6.2.2 PHP: 7.3.21 (apache2handler, Windows NT DESKTOP-QTMR2Q4 10.0 build 22621 (Windows 10) AMD64) MySQL: 5.7.31 (max packet size=67108864) WPLANG: en_US Server: Apache/2.4.46 (Win64) PHP/7.3.21 mod_fcgid/2.3.10-dev safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 9.2M | 12M) multisite: N openssl: OpenSSL 1.1.1g  21 Apr 2020 mcrypt: N LANG:  ZipArchive::addFile: Y
+0000.025 (0) Free space on disk containing Updraft's temporary directory: 46138.6 MB
+0000.038 (0) Tasks: Backup files:  (schedule: manual) Backup DB: 1 (schedule: daily)
+0000.043 (0) Processed schedules. Tasks now: Backup files:  Backup DB: 1
+0000.075 (0) Requesting semaphore lock (d) (apparently via scheduler: last_scheduled_action_called_at=1691064056, seconds_ago=315905)
+0000.083 (0) Set semaphore last lock (d) time to 2023-08-07 03:46:01
+0000.086 (0) Semaphore lock (d) complete
+0000.093 (0) Backup run: resumption=0, nonce=1770f26f4396, file_nonce=1770f26f4396 begun at=1691379961 (0s ago), job type=backup
+0000.098 (0) Scheduling a resumption (1) after 300 seconds (1691380261) in case this run gets aborted
+0000.133 (0) This backup run is not intended for files - skipping
+0000.136 (0) Beginning creation of database dump (WordPress DB)
+0000.138 (0) SQL compatibility mode is: NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER
+0000.186 (0) Table wo_options: Total expected rows (via COUNT): 339
+0000.189 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.281 (0) Table wo_options: Rows added in this batch (next record: 54031): 335 (uncompressed bytes in this segment=1866699) in 0.11 seconds
+0000.294 (0) Table wo_options: finishing file(s) (2, 429.5 KB)
+0000.306 (0) Table wo_users: Total expected rows (via COUNT): 6
+0000.308 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.313 (0) Table wo_users: Rows added in this batch (next record: 6): 6 (uncompressed bytes in this segment=2195) in 0.01 seconds
+0000.321 (0) Table wo_users: finishing file(s) (2, 1 KB)
+0000.334 (0) Table wo_usermeta: Total expected rows (via COUNT): 261
+0000.336 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.349 (0) Table wo_usermeta: Rows added in this batch (next record: 309): 261 (uncompressed bytes in this segment=20371) in 0.02 seconds
+0000.362 (0) Table wo_usermeta: finishing file(s) (2, 4.8 KB)
+0000.371 (0) Table wo_actionscheduler_actions: Total expected rows (via COUNT): 2
+0000.373 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.378 (0) Table wo_actionscheduler_actions: Rows added in this batch (next record: 1031): 2 (uncompressed bytes in this segment=2139) in 0.01 seconds
+0000.389 (0) Table wo_actionscheduler_actions: finishing file(s) (2, 0.8 KB)
+0000.396 (0) Table wo_actionscheduler_claims: Total expected rows (via COUNT): 0
+0000.400 (0) Table wo_actionscheduler_claims: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=623) in 0.01 seconds
+0000.408 (0) Table wo_actionscheduler_claims: finishing file(s) (2, 0.4 KB)
+0000.416 (0) Table wo_actionscheduler_groups: Total expected rows (via COUNT): 2
+0000.418 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.423 (0) Table wo_actionscheduler_groups: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=711) in 0.01 seconds
+0000.434 (0) Table wo_actionscheduler_groups: finishing file(s) (2, 0.4 KB)
+0000.447 (0) Table wo_actionscheduler_logs: Total expected rows (via COUNT): 6
+0000.451 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.457 (0) Table wo_actionscheduler_logs: Rows added in this batch (next record: 6): 6 (uncompressed bytes in this segment=1340) in 0.01 seconds
+0000.471 (0) Table wo_actionscheduler_logs: finishing file(s) (2, 0.5 KB)
+0000.488 (0) Table wo_commentmeta: Total expected rows (via COUNT): 128
+0000.491 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.501 (0) Table wo_commentmeta: Rows added in this batch (next record: 128): 128 (uncompressed bytes in this segment=6428) in 0.02 seconds
+0000.515 (0) Table wo_commentmeta: finishing file(s) (2, 1.1 KB)
+0000.529 (0) Table wo_comments: Total expected rows (via COUNT): 64
+0000.533 (0) Table is relatively small; fetch_rows will thus be: 100 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0000.552 (0) Table wo_comments: Rows added in this batch (next record: 64): 64 (uncompressed bytes in this segment=27980) in 0.03 seconds
+0000.563 (0) Table wo_comments: finishing file(s) (2, 6.9 KB)
+0000.573 (0) Table wo_links: Total expected rows (via COUNT): 0
+0000.580 (0) Table wo_links: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1270) in 0.01 seconds
+0000.595 (0) Table wo_links: finishing file(s) (2, 0.5 KB)
+0000.613 (0) Table wo_postmeta: Total expected rows (approximate): 2044
+0000.757 (0) Table wo_postmeta: Rows added in this batch (next record: 7312): 2088 (uncompressed bytes in this segment=398370) in 0.15 seconds
+0000.774 (0) Table wo_postmeta: finishing file(s) (2, 53.1 KB)
+0000.797 (0) Table wo_posts: Total expected rows (via COUNT): 663
+0001.119 (0) Table wo_posts: Rows added in this batch (next record: 1036): 663 (uncompressed bytes in this segment=647432) in 0.34 seconds
+0001.133 (0) Table wo_posts: finishing file(s) (2, 122 KB)
+0001.143 (0) Table wo_term_relationships: Total expected rows (approximate): 50
+0001.151 (0) Table wo_term_relationships: Rows added in this batch (next record: 100000): 50 (uncompressed bytes in this segment=1420) in 0.01 seconds
+0001.163 (0) Table wo_term_relationships: finishing file(s) (2, 0.5 KB)
+0001.178 (0) Table wo_term_taxonomy: Total expected rows (via COUNT): 16
+0001.181 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.189 (0) Table wo_term_taxonomy: Rows added in this batch (next record: 16): 16 (uncompressed bytes in this segment=1540) in 0.02 seconds
+0001.205 (0) Table wo_term_taxonomy: finishing file(s) (2, 0.6 KB)
+0001.223 (0) Table wo_termmeta: Total expected rows (via COUNT): 0
+0001.230 (0) Table wo_termmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=646) in 0.01 seconds
+0001.247 (0) Table wo_termmeta: finishing file(s) (2, 0.4 KB)
+0001.259 (0) Table wo_terms: Total expected rows (via COUNT): 16
+0001.263 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.272 (0) Table wo_terms: Rows added in this batch (next record: 16): 16 (uncompressed bytes in this segment=1353) in 0.02 seconds
+0001.286 (0) Table wo_terms: finishing file(s) (2, 0.7 KB)
+0001.300 (0) Table wo_e_events: Total expected rows (via COUNT): 1
+0001.303 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.307 (0) Table wo_e_events: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=791) in 0.01 seconds
+0001.319 (0) Table wo_e_events: finishing file(s) (2, 0.5 KB)
+0001.330 (0) Table wo_easywpsmtp_debug_events: Total expected rows (via COUNT): 0
+0001.335 (0) Table wo_easywpsmtp_debug_events: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=707) in 0.01 seconds
+0001.345 (0) Table wo_easywpsmtp_debug_events: finishing file(s) (2, 0.4 KB)
+0001.358 (0) Table wo_easywpsmtp_tasks_meta: Total expected rows (via COUNT): 0
+0001.364 (0) Table wo_easywpsmtp_tasks_meta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=623) in 0.01 seconds
+0001.373 (0) Table wo_easywpsmtp_tasks_meta: finishing file(s) (2, 0.4 KB)
+0001.381 (0) Table wo_ens_subscribers: Total expected rows (via COUNT): 32
+0001.383 (0) Table is relatively small; fetch_rows will thus be: 50 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.388 (0) Table wo_ens_subscribers: Rows added in this batch (next record: 32): 32 (uncompressed bytes in this segment=3594) in 0.01 seconds
+0001.397 (0) Table wo_ens_subscribers: finishing file(s) (2, 0.9 KB)
+0001.407 (0) Table wo_toolset_post_guid_id: Total expected rows (via COUNT): 0
+0001.412 (0) Table wo_toolset_post_guid_id: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=558) in 0.01 seconds
+0001.420 (0) Table wo_toolset_post_guid_id: finishing file(s) (2, 0.3 KB)
+0001.442 (0) Table wo_wpfm_backup: Total expected rows (via COUNT): 0
+0001.445 (0) Table wo_wpfm_backup: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=514) in 0.00 seconds
+0001.456 (0) Table wo_wpfm_backup: finishing file(s) (2, 0.3 KB)
+0001.473 (0) Table wo_yoast_indexable: Total expected rows (via COUNT): 130
+0001.475 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.544 (0) Table wo_yoast_indexable: Rows added in this batch (next record: 171): 130 (uncompressed bytes in this segment=101278) in 0.08 seconds
+0001.558 (0) Table wo_yoast_indexable: finishing file(s) (2, 16.1 KB)
+0001.567 (0) Table wo_yoast_indexable_hierarchy: Total expected rows (approximate): 35
+0001.572 (0) Table wo_yoast_indexable_hierarchy: Rows added in this batch (next record: 1000): 34 (uncompressed bytes in this segment=1376) in 0.01 seconds
+0001.580 (0) Table wo_yoast_indexable_hierarchy: finishing file(s) (2, 0.5 KB)
+0001.588 (0) Table wo_yoast_migrations: Total expected rows (via COUNT): 24
+0001.590 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.597 (0) Table wo_yoast_migrations: Rows added in this batch (next record: 24): 24 (uncompressed bytes in this segment=1269) in 0.01 seconds
+0001.608 (0) Table wo_yoast_migrations: finishing file(s) (2, 0.6 KB)
+0001.622 (0) Table wo_yoast_primary_term: Total expected rows (via COUNT): 0
+0001.629 (0) Table wo_yoast_primary_term: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=858) in 0.01 seconds
+0001.641 (0) Table wo_yoast_primary_term: finishing file(s) (2, 0.4 KB)
+0001.650 (0) Table wo_yoast_seo_links: Total expected rows (via COUNT): 1
+0001.652 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.658 (0) Table wo_yoast_seo_links: Rows added in this batch (next record: 2): 1 (uncompressed bytes in this segment=1273) in 0.01 seconds
+0001.668 (0) Table wo_yoast_seo_links: finishing file(s) (2, 0.5 KB)
+0001.678 (0) Table wo_yoast_seo_meta: Total expected rows (via COUNT): 224
+0001.680 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0001.695 (0) Table wo_yoast_seo_meta: Rows added in this batch (next record: 1006): 224 (uncompressed bytes in this segment=3715) in 0.02 seconds
+0001.706 (0) Table wo_yoast_seo_meta: finishing file(s) (2, 0.9 KB)
+0001.710 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_options.table.tmpr54032.gz (1/28/fopen): adding to final database dump
+0001.732 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_options.table.gz (2/28/fopen): adding to final database dump
+0001.735 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_users.table.tmpr7.gz (3/28/fopen): adding to final database dump
+0001.739 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_users.table.gz (4/28/fopen): adding to final database dump
+0001.742 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_usermeta.table.tmpr310.gz (5/28/fopen): adding to final database dump
+0001.746 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_usermeta.table.gz (6/28/fopen): adding to final database dump
+0001.750 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_actionscheduler_actions.table.tmpr1032.gz (7/28/fopen): adding to final database dump
+0001.754 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_actionscheduler_actions.table.gz (8/28/fopen): adding to final database dump
+0001.757 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_actionscheduler_claims.table.tmpr0.gz (9/28/fopen): adding to final database dump
+0001.761 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_actionscheduler_claims.table.gz (10/28/fopen): adding to final database dump
+0001.764 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_actionscheduler_groups.table.tmpr3.gz (11/28/fopen): adding to final database dump
+0001.768 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_actionscheduler_groups.table.gz (12/28/fopen): adding to final database dump
+0001.772 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_actionscheduler_logs.table.tmpr7.gz (13/28/fopen): adding to final database dump
+0001.775 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_actionscheduler_logs.table.gz (14/28/fopen): adding to final database dump
+0001.779 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_commentmeta.table.tmpr129.gz (15/28/fopen): adding to final database dump
+0001.783 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_commentmeta.table.gz (16/28/fopen): adding to final database dump
+0001.786 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_comments.table.tmpr65.gz (17/28/fopen): adding to final database dump
+0001.790 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_comments.table.gz (18/28/fopen): adding to final database dump
+0001.793 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_links.table.tmpr0.gz (19/28/fopen): adding to final database dump
+0001.797 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_links.table.gz (20/28/fopen): adding to final database dump
+0001.800 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_postmeta.table.tmpr7313.gz (21/28/fopen): adding to final database dump
+0001.805 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_postmeta.table.gz (22/28/fopen): adding to final database dump
+0001.807 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_posts.table.tmpr1037.gz (23/28/fopen): adding to final database dump
+0001.818 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_posts.table.gz (24/28/fopen): adding to final database dump
+0001.821 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_term_relationships.table.tmpr100001.gz (25/28/fopen): adding to final database dump
+0001.825 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_term_relationships.table.gz (26/28/fopen): adding to final database dump
+0001.828 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_term_taxonomy.table.tmpr17.gz (27/28/fopen): adding to final database dump
+0001.831 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_term_taxonomy.table.gz (28/28/fopen): adding to final database dump
+0001.834 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_termmeta.table.tmpr0.gz (29/28/fopen): adding to final database dump
+0001.837 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_termmeta.table.gz (30/28/fopen): adding to final database dump
+0001.839 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_terms.table.tmpr17.gz (31/28/fopen): adding to final database dump
+0001.842 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_terms.table.gz (32/28/fopen): adding to final database dump
+0001.845 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_e_events.table.tmpr2.gz (33/28/fopen): adding to final database dump
+0001.849 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_e_events.table.gz (34/28/fopen): adding to final database dump
+0001.852 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_easywpsmtp_debug_events.table.tmpr0.gz (35/28/fopen): adding to final database dump
+0001.856 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_easywpsmtp_debug_events.table.gz (36/28/fopen): adding to final database dump
+0001.859 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_easywpsmtp_tasks_meta.table.tmpr0.gz (37/28/fopen): adding to final database dump
+0001.863 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_easywpsmtp_tasks_meta.table.gz (38/28/fopen): adding to final database dump
+0001.866 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_ens_subscribers.table.tmpr33.gz (39/28/fopen): adding to final database dump
+0001.870 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_ens_subscribers.table.gz (40/28/fopen): adding to final database dump
+0001.874 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_toolset_post_guid_id.table.tmpr0.gz (41/28/fopen): adding to final database dump
+0001.877 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_toolset_post_guid_id.table.gz (42/28/fopen): adding to final database dump
+0001.881 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_wpfm_backup.table.tmpr0.gz (43/28/fopen): adding to final database dump
+0001.885 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_wpfm_backup.table.gz (44/28/fopen): adding to final database dump
+0001.888 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_indexable.table.tmpr172.gz (45/28/fopen): adding to final database dump
+0001.893 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_indexable.table.gz (46/28/fopen): adding to final database dump
+0001.897 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_indexable_hierarchy.table.tmpr1001.gz (47/28/fopen): adding to final database dump
+0001.901 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_indexable_hierarchy.table.gz (48/28/fopen): adding to final database dump
+0001.904 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_migrations.table.tmpr25.gz (49/28/fopen): adding to final database dump
+0001.908 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_migrations.table.gz (50/28/fopen): adding to final database dump
+0001.911 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_primary_term.table.tmpr0.gz (51/28/fopen): adding to final database dump
+0001.914 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_primary_term.table.gz (52/28/fopen): adding to final database dump
+0001.916 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_seo_links.table.tmpr3.gz (53/28/fopen): adding to final database dump
+0001.918 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_seo_links.table.gz (54/28/fopen): adding to final database dump
+0001.920 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_seo_meta.table.tmpr1007.gz (55/28/fopen): adding to final database dump
+0001.922 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db-table-wo_yoast_seo_meta.table.gz (56/28/fopen): adding to final database dump
+0001.933 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db.gz: finished writing out complete database file (645 KB)
+0001.960 (0) Total database tables backed up: 28 (backup_2023-08-07-0346_WOOP_1770f26f4396-db.gz, size: 660636, sha1: 68f716e2d3f70b3526f7feae2ac2bb353efef606, sha256: 9307f33cfdd829860dff777fca9321aebb968f41911cce07fc38561a23769d18)
+0001.982 (0) backup_2023-08-07-0346_WOOP_1770f26f4396-db.gz: db: This file has not yet been successfully uploaded: will queue
+0001.985 (0) Saving backup history. Total backup size: 645.2 KB
+0001.998 (0) Requesting upload of the files that have not yet been successfully uploaded (1)
+0002.007 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)
+0002.011 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-1fc4670dd05606ea794a07e061b3c3a6)
+0006.706 (0) Google Drive: quota usage: used=428253.7 MB, total=79691776 MB, available=79263522.3 MB
+0006.709 (0) Google Drive: backup_2023-08-07-0346_WOOP_1770f26f4396-db.gz: Attempting to upload to Google Drive (into folder id: 1-_2BjctluYU-AdE-lPDXd9lPz329_5R8)
+0015.365 (0) Googledrive chunked upload: 100 % uploaded
+0015.375 (0) Google Drive: OK: Archive backup_2023-08-07-0346_WOOP_1770f26f4396-db.gz uploaded in 8.66 seconds
+0015.378 (0) Recording as successfully uploaded: backup_2023-08-07-0346_WOOP_1770f26f4396-db.gz
+0015.386 (0) Deleting local file: backup_2023-08-07-0346_WOOP_1770f26f4396-db.gz: OK
+0015.398 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=30
+0015.407 (0) Number of backup sets in history: 33; groups (db): 1
+0015.410 (0) Examining (for databases) backup set with group_id=0, nonce=1770f26f4396, datestamp=1691379961 (Aug 07 2023 03:46:01)
+0015.414 (0) This backup set is the backup set just made, so will not be deleted.
+0015.414 (0) Examining (for databases) backup set with group_id=0, nonce=37654dc50ceb, datestamp=1691064056 (Aug 03 2023 12:00:56)
+0015.414 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.417 (0) Examining (for databases) backup set with group_id=0, nonce=38f5ab7b07c3, datestamp=1690971616 (Aug 02 2023 10:20:16)
+0015.418 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.419 (0) Examining (for databases) backup set with group_id=0, nonce=e9b76066ad2f, datestamp=1690885217 (Aug 01 2023 10:20:17)
+0015.419 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.420 (0) Examining (for databases) backup set with group_id=0, nonce=2ca52f6ccfd2, datestamp=1690798893 (Jul 31 2023 10:21:33)
+0015.420 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.421 (0) Examining (for databases) backup set with group_id=0, nonce=8b86e95ba98c, datestamp=1690712558 (Jul 30 2023 10:22:38)
+0015.421 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.422 (0) Examining (for databases) backup set with group_id=0, nonce=9234a34c2a8f, datestamp=1690626060 (Jul 29 2023 10:21:00)
+0015.422 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.424 (0) Examining (for databases) backup set with group_id=0, nonce=b60ec7aeff2e, datestamp=1690539715 (Jul 28 2023 10:21:55)
+0015.424 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.425 (0) Examining (for databases) backup set with group_id=0, nonce=41d988ddd0d6, datestamp=1690453278 (Jul 27 2023 10:21:18)
+0015.425 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.426 (0) Examining (for databases) backup set with group_id=0, nonce=deda730599dd, datestamp=1690366841 (Jul 26 2023 10:20:41)
+0015.426 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.427 (0) Examining (for databases) backup set with group_id=0, nonce=a082116630d4, datestamp=1690280598 (Jul 25 2023 10:23:18)
+0015.428 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.429 (0) Examining (for databases) backup set with group_id=0, nonce=649523e427d4, datestamp=1690194056 (Jul 24 2023 10:20:56)
+0015.429 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.430 (0) Examining (for databases) backup set with group_id=0, nonce=e381877f27f5, datestamp=1690107765 (Jul 23 2023 10:22:45)
+0015.430 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.431 (0) Examining (for databases) backup set with group_id=0, nonce=b29406502308, datestamp=1690021238 (Jul 22 2023 10:20:38)
+0015.431 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.433 (0) Examining (for databases) backup set with group_id=0, nonce=82f0e6f27a0a, datestamp=1689934868 (Jul 21 2023 10:21:08)
+0015.433 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.433 (0) Examining (for databases) backup set with group_id=0, nonce=a692ee6e2a4c, datestamp=1689848460 (Jul 20 2023 10:21:00)
+0015.434 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.435 (0) Examining (for databases) backup set with group_id=0, nonce=ce9787526ad3, datestamp=1689762095 (Jul 19 2023 10:21:35)
+0015.435 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.436 (0) Examining (for databases) backup set with group_id=0, nonce=f87a79ba7697, datestamp=1689747396 (Jul 19 2023 06:16:36)
+0015.436 (0) This backup set (1689747396) was an 'Always Keep' backup, so it will not be pruned. Skipping.
+0015.436 (0) Examining (for databases) backup set with group_id=0, nonce=8e014d7e1d23, datestamp=1689675661 (Jul 18 2023 10:21:01)
+0015.436 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.437 (0) Examining (for databases) backup set with group_id=0, nonce=3e99cc6d5969, datestamp=1689589381 (Jul 17 2023 10:23:01)
+0015.437 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.439 (0) Examining (for databases) backup set with group_id=0, nonce=4c526ce6570a, datestamp=1689502887 (Jul 16 2023 10:21:27)
+0015.439 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.440 (0) Examining (for databases) backup set with group_id=0, nonce=d0011c885f83, datestamp=1689416416 (Jul 15 2023 10:20:16)
+0015.440 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.441 (0) Examining (for databases) backup set with group_id=0, nonce=537c1bc91b57, datestamp=1689330047 (Jul 14 2023 10:20:47)
+0015.441 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.442 (0) Examining (for databases) backup set with group_id=0, nonce=798c5222befb, datestamp=1689243626 (Jul 13 2023 10:20:26)
+0015.443 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.444 (0) Examining (for databases) backup set with group_id=0, nonce=225fa5b86377, datestamp=1689228109 (Jul 13 2023 06:01:49)
+0015.444 (0) This backup set (1689228109) was an 'Always Keep' backup, so it will not be pruned. Skipping.
+0015.444 (0) Examining (for databases) backup set with group_id=0, nonce=2b8cb53bb566, datestamp=1689157298 (Jul 12 2023 10:21:38)
+0015.444 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.445 (0) Examining (for databases) backup set with group_id=0, nonce=f4f4bf670eca, datestamp=1689143475 (Jul 12 2023 06:31:15)
+0015.445 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.447 (0) Examining (for databases) backup set with group_id=0, nonce=f897efbc16a4, datestamp=1689070830 (Jul 11 2023 10:20:30)
+0015.447 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.448 (0) Examining (for databases) backup set with group_id=0, nonce=d0a3a65723da, datestamp=1688984475 (Jul 10 2023 10:21:15)
+0015.448 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.449 (0) Examining (for databases) backup set with group_id=0, nonce=0eb5c46fe103, datestamp=1688898018 (Jul 09 2023 10:20:18)
+0015.449 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.450 (0) Examining (for databases) backup set with group_id=0, nonce=890a38069725, datestamp=1688811787 (Jul 08 2023 10:23:07)
+0015.451 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.452 (0) Examining (for databases) backup set with group_id=0, nonce=7cba16479c27, datestamp=1688725213 (Jul 07 2023 10:20:13)
+0015.452 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0015.453 (0) Examining (for databases) backup set with group_id=0, nonce=f036a9d2ea80, datestamp=1688638871 (Jul 06 2023 10:21:11)
+0015.453 (0) 1688638871: db: this set includes a database (backup_2023-07-06-1021_WOOP_f036a9d2ea80-db.gz); db count is now 30
+0015.453 (0) 1688638871: db: over retain limit (30); will delete this database
+0020.028 (0) Google Drive: backup_2023-07-06-1021_WOOP_f036a9d2ea80-db.gz: Deletion failed: file was not found
+0020.038 (0) This backup set is now empty; will remove from history
+0020.041 (0) Corresponding log file (log.f036a9d2ea80.txt) not found - must have already been deleted
+0020.044 (0) Number of backup sets in history: 32; groups (files): 1
+0020.047 (0) Examining (for files) backup set with nonce=1770f26f4396, datestamp=1691379961 (Aug 07 2023 03:46:01)
+0020.049 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.050 (0) Examining (for files) backup set with nonce=37654dc50ceb, datestamp=1691064056 (Aug 03 2023 12:00:56)
+0020.050 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.051 (0) Examining (for files) backup set with nonce=38f5ab7b07c3, datestamp=1690971616 (Aug 02 2023 10:20:16)
+0020.051 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.051 (0) Examining (for files) backup set with nonce=e9b76066ad2f, datestamp=1690885217 (Aug 01 2023 10:20:17)
+0020.051 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.052 (0) Examining (for files) backup set with nonce=2ca52f6ccfd2, datestamp=1690798893 (Jul 31 2023 10:21:33)
+0020.052 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.053 (0) Examining (for files) backup set with nonce=8b86e95ba98c, datestamp=1690712558 (Jul 30 2023 10:22:38)
+0020.053 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.053 (0) Examining (for files) backup set with nonce=9234a34c2a8f, datestamp=1690626060 (Jul 29 2023 10:21:00)
+0020.053 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.053 (0) Examining (for files) backup set with nonce=b60ec7aeff2e, datestamp=1690539715 (Jul 28 2023 10:21:55)
+0020.053 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.054 (0) Examining (for files) backup set with nonce=41d988ddd0d6, datestamp=1690453278 (Jul 27 2023 10:21:18)
+0020.054 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.054 (0) Examining (for files) backup set with nonce=deda730599dd, datestamp=1690366841 (Jul 26 2023 10:20:41)
+0020.054 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.055 (0) Examining (for files) backup set with nonce=a082116630d4, datestamp=1690280598 (Jul 25 2023 10:23:18)
+0020.055 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.055 (0) Examining (for files) backup set with nonce=649523e427d4, datestamp=1690194056 (Jul 24 2023 10:20:56)
+0020.055 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.056 (0) Examining (for files) backup set with nonce=e381877f27f5, datestamp=1690107765 (Jul 23 2023 10:22:45)
+0020.056 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.056 (0) Examining (for files) backup set with nonce=b29406502308, datestamp=1690021238 (Jul 22 2023 10:20:38)
+0020.056 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.056 (0) Examining (for files) backup set with nonce=82f0e6f27a0a, datestamp=1689934868 (Jul 21 2023 10:21:08)
+0020.057 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.057 (0) Examining (for files) backup set with nonce=a692ee6e2a4c, datestamp=1689848460 (Jul 20 2023 10:21:00)
+0020.057 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.057 (0) Examining (for files) backup set with nonce=ce9787526ad3, datestamp=1689762095 (Jul 19 2023 10:21:35)
+0020.057 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.058 (0) Examining (for files) backup set with nonce=f87a79ba7697, datestamp=1689747396 (Jul 19 2023 06:16:36)
+0020.058 (0) This backup set (1689747396) was an 'Always Keep' backup, and we have not yet reached any retain limits, so it should be counted in the count of how many have been retained for purposes of the 'how many to retain' count. It will not be pruned. Skipping.
+0020.058 (0) This backup set (1689747396) was an 'Always Keep' backup, and we have not yet reached any retain limits, so it should be counted in the count of how many have been retained for purposes of the 'how many to retain' count. It will not be pruned. Skipping.
+0020.058 (0) This backup set (1689747396) was an 'Always Keep' backup, and we have not yet reached any retain limits, so it should be counted in the count of how many have been retained for purposes of the 'how many to retain' count. It will not be pruned. Skipping.
+0020.058 (0) This backup set (1689747396) was an 'Always Keep' backup, and we have not yet reached any retain limits, so it should be counted in the count of how many have been retained for purposes of the 'how many to retain' count. It will not be pruned. Skipping.
+0020.058 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.060 (0) Examining (for files) backup set with nonce=8e014d7e1d23, datestamp=1689675661 (Jul 18 2023 10:21:01)
+0020.060 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.062 (0) Examining (for files) backup set with nonce=3e99cc6d5969, datestamp=1689589381 (Jul 17 2023 10:23:01)
+0020.062 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.063 (0) Examining (for files) backup set with nonce=4c526ce6570a, datestamp=1689502887 (Jul 16 2023 10:21:27)
+0020.063 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.063 (0) Examining (for files) backup set with nonce=d0011c885f83, datestamp=1689416416 (Jul 15 2023 10:20:16)
+0020.064 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.064 (0) Examining (for files) backup set with nonce=537c1bc91b57, datestamp=1689330047 (Jul 14 2023 10:20:47)
+0020.064 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.065 (0) Examining (for files) backup set with nonce=798c5222befb, datestamp=1689243626 (Jul 13 2023 10:20:26)
+0020.065 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.066 (0) Examining (for files) backup set with nonce=225fa5b86377, datestamp=1689228109 (Jul 13 2023 06:01:49)
+0020.066 (0) This backup set (1689228109) was an 'Always Keep' backup, and we have not yet reached any retain limits, so it should be counted in the count of how many have been retained for purposes of the 'how many to retain' count. It will not be pruned. Skipping.
+0020.066 (0) This backup set (1689228109) was an 'Always Keep' backup, and we have not yet reached any retain limits, so it should be counted in the count of how many have been retained for purposes of the 'how many to retain' count. It will not be pruned. Skipping.
+0020.066 (0) This backup set (1689228109) was an 'Always Keep' backup, and we have not yet reached any retain limits, so it should be counted in the count of how many have been retained for purposes of the 'how many to retain' count. It will not be pruned. Skipping.
+0020.066 (0) This backup set (1689228109) was an 'Always Keep' backup, and we have not yet reached any retain limits, so it should be counted in the count of how many have been retained for purposes of the 'how many to retain' count. It will not be pruned. Skipping.
+0020.066 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0020.068 (0) Examining (for files) backup set with nonce=2b8cb53bb566, datestamp=1689157298 (Jul 12 2023 10:21:38)
+0020.068 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.070 (0) Examining (for files) backup set with nonce=f4f4bf670eca, datestamp=1689143475 (Jul 12 2023 06:31:15)
+0020.070 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.071 (0) Examining (for files) backup set with nonce=f897efbc16a4, datestamp=1689070830 (Jul 11 2023 10:20:30)
+0020.071 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.071 (0) Examining (for files) backup set with nonce=d0a3a65723da, datestamp=1688984475 (Jul 10 2023 10:21:15)
+0020.071 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.072 (0) Examining (for files) backup set with nonce=0eb5c46fe103, datestamp=1688898018 (Jul 09 2023 10:20:18)
+0020.072 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.072 (0) Examining (for files) backup set with nonce=890a38069725, datestamp=1688811787 (Jul 08 2023 10:23:07)
+0020.072 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.073 (0) Examining (for files) backup set with nonce=7cba16479c27, datestamp=1688725213 (Jul 07 2023 10:20:13)
+0020.073 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0020.073 (0) Retain: saving new backup history (sets now: 32) and finishing retain operation
+0020.081 (0) Resume backup (1770f26f4396, 0): finish run
+0020.085 (0) Decremented the semaphore (d) by 1
+0020.088 (0) Semaphore (d) unlocked
+0020.090 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0020.096 (0) No email will/can be sent - the user has not configured an email address.
+0020.098 (0) The backup apparently succeeded and is now complete
