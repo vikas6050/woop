@@ -4,41 +4,33 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit60eadfb90352c46f0f9277207bae9025
+class ComposerStaticInit4c1a6864f819fbf9117c5efa65da9f23
 {
     public static $prefixLengthsPsr4 = array (
         'N' => 
         array (
-            'Nilambar\\Optioner\\' => 18,
-        ),
-        'K' => 
-        array (
-            'Kirki\\' => 6,
+            'Nilambar\\AdminNotice\\' => 21,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Nilambar\\Optioner\\' => 
+        'Nilambar\\AdminNotice\\' => 
         array (
-            0 => __DIR__ . '/..' . '/ernilambar/optioner/src',
-        ),
-        'Kirki\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kirki-framework/url-getter/src',
+            0 => __DIR__ . '/..' . '/ernilambar/wp-admin-notice/src',
         ),
     );
 
     public static $classMap = array (
-        'Kirki\\URL' => __DIR__ . '/..' . '/kirki-framework/url-getter/src/URL.php',
-        'Nilambar\\Optioner\\Optioner' => __DIR__ . '/..' . '/ernilambar/optioner/src/Optioner.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Nilambar\\AdminNotice\\Notice' => __DIR__ . '/..' . '/ernilambar/wp-admin-notice/src/Notice.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit60eadfb90352c46f0f9277207bae9025::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit60eadfb90352c46f0f9277207bae9025::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit60eadfb90352c46f0f9277207bae9025::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit4c1a6864f819fbf9117c5efa65da9f23::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit4c1a6864f819fbf9117c5efa65da9f23::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit4c1a6864f819fbf9117c5efa65da9f23::$classMap;
 
         }, null, ClassLoader::class);
     }

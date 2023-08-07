@@ -173,7 +173,7 @@ foreach ($default_options as $k => $v) {
 
 			<td>
 
-			<a href="<?php echo UpdraftPlus::get_current_clean_url();?>" class="updraft_show_decryption_widget"><?php _e('You can manually decrypt an encrypted database here.', 'updraftplus');?></a>
+			<a href="<?php echo esc_url(UpdraftPlus::get_current_clean_url());?>" class="updraft_show_decryption_widget"><?php _e('You can manually decrypt an encrypted database here.', 'updraftplus');?></a>
 
 			<div id="updraft-manualdecrypt-modal" class="updraft-hidden" style="display:none;">
 				<p><h3><?php _e("Manually decrypt a database backup file", 'updraftplus'); ?></h3></p>
@@ -267,7 +267,7 @@ foreach ($default_options as $k => $v) {
 			<label for="updraft_email" class="updraft_checkbox email_report">
 				<input type="checkbox" id="updraft_email" name="updraft_email" value="<?php esc_attr_e(get_bloginfo('admin_email')); ?>"<?php if ($is_email_storage || !empty($updraft_email)) echo ' checked="checked"';?> <?php if ($is_email_storage) echo 'disabled onclick="return false"'; ?>> 
 				<?php
-					// have to add this hidden input so that when the form is submited and if the udpraft_email checkbox is disabled, this hidden input will be passed to the server along with other active elements
+					// have to add this hidden input so that when the form is submitted and if the udpraft_email checkbox is disabled, this hidden input will be passed to the server along with other active elements
 					if ($is_email_storage) echo '<input type="hidden" name="updraft_email" value="'.esc_attr(get_bloginfo('admin_email')).'">';
 				?>
 				<div id="cb_not_email_storage_label" <?php echo ($is_email_storage) ? 'style="display: none"' : 'style="display: inline"'; ?>>
@@ -278,7 +278,7 @@ foreach ($default_options as $k => $v) {
 				</div>
 			</label>
 			<?php
-				if (!class_exists('UpdraftPlus_Addon_Reporting')) echo '<a href="'.$updraftplus->get_url('premium').'" target="_blank">'.__('For more reporting features, use the Preium version', 'updraftplus').'</a>';
+				if (!class_exists('UpdraftPlus_Addon_Reporting')) echo '<a href="'.$updraftplus->get_url('premium').'" target="_blank">'.__('For more reporting features, use the Premium version', 'updraftplus').'</a>';
 			?>
 		</td>
 	</tr>
@@ -307,7 +307,7 @@ foreach ($default_options as $k => $v) {
 
 	<tr>
 		<th><?php _e('Expert settings', 'updraftplus');?>:</th>
-		<td><a class="enableexpertmode" href="<?php echo UpdraftPlus::get_current_clean_url();?>#enableexpertmode"><?php _e('Show expert settings', 'updraftplus');?></a> - <?php _e("open this to show some further options; don't bother with this unless you have a problem or are curious.", 'updraftplus');?> <?php do_action('updraftplus_expertsettingsdescription'); ?></td>
+		<td><a class="enableexpertmode" href="<?php echo esc_url(UpdraftPlus::get_current_clean_url());?>#enableexpertmode"><?php _e('Show expert settings', 'updraftplus');?></a> - <?php _e("open this to show some further options; don't bother with this unless you have a problem or are curious.", 'updraftplus');?> <?php do_action('updraftplus_expertsettingsdescription'); ?></td>
 	</tr>
 	<?php
 	$delete_local = UpdraftPlus_Options::get_updraft_option('updraft_delete_local', 1);
@@ -374,7 +374,7 @@ foreach ($default_options as $k => $v) {
 		<td>
 			<?php
 				if (!empty($options['include_adverts'])) {
-					if (!class_exists('UpdraftPlus_Notices')) include_once(UPDRAFTPLUS_DIR.'/includes/updraftplus-notices.php');
+					if (!class_exists('UpdraftPlus_Notices')) updraft_try_include_file('includes/updraftplus-notices.php', 'include_once');
 					global $updraftplus_notices;
 					$updraftplus_notices->do_notice(false, 'bottom');
 				}
