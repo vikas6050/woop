@@ -913,9 +913,9 @@ Check your permissions and credentials.','updraftplus'), 'error');
 	protected function get_pre_configuration_template_engine($key, $whoweare_short, $whoweare_long, $console_descrip, $console_url, $opening_html = '') {
 		$classes = $this->get_css_classes(false);
 		?>
-		<tr class="<?php echo $classes . ' ' . $whoweare_short . '_pre_config_container';?>">
+		<tr class="<?php echo esc_attr($classes . ' ' . $whoweare_short . '_pre_config_container');?>">
 			<td colspan="2">
-				<?php echo $opening_html.'<br>'; ?>
+				<?php echo wp_kses_post($opening_html).'<br>'; ?>
 				<?php
 
 					global $updraftplus_admin;
@@ -1240,7 +1240,8 @@ Check your permissions and credentials.','updraftplus'), 'error');
 					return array($storage, $config, false, false);
 				}
 				
-				// TODO: If this is a credentials test, then $config/$new_config may get wrongly populated with saved instead of test values here
+				// The base Amazon S3 module and child S3-Generic remote storage don't use session token to make a connection to the targeted storage server: we only use session token for Vault storage.
+				// Since we don't provide credentials testing for Vault storage, this means handling session token expiry exception won't happen during credentials testing. So the fact that saved values are used here is fine, since there are no other relevant values in the absence of credentials testing.
 				if (false !== strpos($e->getMessage(), 'The provided token has expired')) {
 				
 					$this->log($e->getMessage().": Requesting new credentials");
@@ -1413,12 +1414,9 @@ Check your permissions and credentials.','updraftplus'), 'error');
 			return;
 		}
 
+		if (!empty($posted_settings['signature_version'])) $config['signature_version'] = $posted_settings['signature_version'];
+
 		if (!empty($posted_settings['bucket_access_style']) && 'virtual_host_style' === $posted_settings['bucket_access_style']) {
-			// due to the merge of S3-generic bucket access style MR on March 2021, if virtual-host bucket access style is selected, connecting to an amazonaws bucket location where the user doesn't have an access to it will throw an S3 InvalidRequest exception. It requires the signature to be set to version 4
-			if (!is_a($storage, 'UpdraftPlus_S3_Compat') && preg_match('/\.amazonaws\.com$/i', $endpoint)) {
-				$this->use_v4 = true;
-				$storage->setSignatureVersion('v4');
-			}
 			$storage->useDNSBucketName(true, $bucket);
 		} else {
 			$storage->useDNSBucketName(false, $bucket);
