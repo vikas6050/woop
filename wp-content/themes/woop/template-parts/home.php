@@ -890,11 +890,10 @@ $cntdate=get_post_meta( 701, 'home_startcounter_date', true );
 $cntamt=get_post_meta( 701, 'home_homepage_counter', true );
 $cntincramt=get_post_meta( 701, 'home_counter_increment', true );	 
 	 
-//$startday = new DateTime('2020-01-23');
- $startday = new DateTime($cntdate);
+$startday = new DateTime($cntdate);
 $today = new DateTime();
-$days  = $today->diff($startday)->format('%a');
-$homefirst = $cntamt + $days*$cntincramt;
+$days = $today->diff($startday)->format('%a');
+$homefirst = intval($cntamt) + intval($days) * intval($cntincramt);
 	 
 // getting banner auto counter limit values
 //$counter1_limit = get_post_meta( 15 ,'wpcf-banner-counter1',true);

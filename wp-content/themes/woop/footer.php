@@ -95,7 +95,7 @@
 						$global_site_results = get_posts( $global_site_args );
 						$tol_global = count($global_site_results);
 						$global_site_results_count = ($tol_global/2) + ($tol_global%2);
-						$array_chunk1 = array_chunk($global_site_results,$global_site_results_count);
+						$array_chunk1 = array_chunk($global_site_results,1);
 
 						if( $array_chunk1 ){
 							$array_chunk_counter = 1;
